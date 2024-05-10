@@ -125,6 +125,7 @@
     <Compile Include="QuanLyPhong.Designer.cs">
       <DependentUpon>QuanLyPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThanhToanForm.cs" />
     <Compile Include="ThongTinPhong.cs">
       <SubType>Form</SubType>
     </Compile>
