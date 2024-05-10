@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyKhachSan
 {
-    internal class ThanhToanForm
+    public partial class ThanhToanForm : Form
     {
+        public ThanhToanForm()
+        {
+            InitializeComponent();
+        }
     }
 }
