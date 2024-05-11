@@ -44,6 +44,8 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonPhanCong = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
             this.panelChuky.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -204,11 +206,33 @@
             this.panel2.Size = new System.Drawing.Size(1362, 54);
             this.panel2.TabIndex = 4;
             // 
+            // buttonPhanCong
+            // 
+            this.buttonPhanCong.Location = new System.Drawing.Point(829, 690);
+            this.buttonPhanCong.Name = "buttonPhanCong";
+            this.buttonPhanCong.Size = new System.Drawing.Size(148, 40);
+            this.buttonPhanCong.TabIndex = 24;
+            this.buttonPhanCong.Text = "PhanCong(v2)";
+            this.buttonPhanCong.UseVisualStyleBackColor = true;
+            this.buttonPhanCong.Click += new System.EventHandler(this.buttonPhanCong_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Location = new System.Drawing.Point(983, 695);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(105, 35);
+            this.buttonLuu.TabIndex = 25;
+            this.buttonLuu.Text = "Lưu(v2)";
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            // 
             // PhanCongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 806);
+            this.Controls.Add(this.buttonLuu);
+            this.Controls.Add(this.buttonPhanCong);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnLuu2);
             this.Controls.Add(this.btnXemDanhSach);
@@ -254,5 +278,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonPhanCong;
+        private System.Windows.Forms.Button buttonLuu;
     }
 }
