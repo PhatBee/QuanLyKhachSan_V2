@@ -25,8 +25,8 @@ namespace QuanLyKhachSan
             MYDB mydb = new MYDB();
             DateTime date = dtpBatDau.Value;
 
-            /*if (thoiGianHopLe(date))
-            {*/
+            if (thoiGianHopLe(date))
+            {
                 SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien", mydb.getConnection);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
@@ -157,7 +157,7 @@ namespace QuanLyKhachSan
                 }
 
                 dataGridView1.DataSource = dt;*/
-            //}
+            }
         }
 
         private bool thoiGianHopLe(DateTime ngay)
@@ -472,89 +472,94 @@ namespace QuanLyKhachSan
         {
             MYDB mydb = new MYDB();
             DateTime date = dtpBatDau.Value;
+           
 
-
-            SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien", mydb.getConnection);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            int soNhanVien = table.Rows.Count;
-            Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
-
-            // Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
-
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
-            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-
-            int[,] A = new int[soNhanVien, soNhanVien];
-            A[0, 0] = 3;
-            A[1, 0] = 7;
-            A[2, 0] = 7;
-            A[3, 0] = 7;
-            A[4, 0] = 7;
-            A[5, 0] = 11;
-
-
-            for (int cot = 1; cot < soNhanVien; cot++)
-            {
-                for (int hang = 0; hang < soNhanVien; hang++)
-                {
-                    if (hang == 0)
-                        A[hang, cot] = A[soNhanVien - 1, cot - 1];
-                    else
-                        A[hang, cot] = A[hang - 1, cot - 1];
-                }
-            }
-            DataTable dataTable = new DataTable();
-
-            DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
-            colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
-            dataTable.Columns.Add(colNgay);
-
-            dataTable.Columns.Add("Nhân viên");
-            dataTable.Columns.Add("Ca");
-            for (int i = 0; i < soNhanVien; i++)
+            if (thoiGianHopLe(date))
             {
 
-                for (int j = 0; j < soNhanVien; j++)
-                {
 
-                    string maNV = table.Rows[j][0].ToString();
-                    CaNhanVienMotNgay[maNV] = A[j, i];
-                }
-                foreach (var clv in CaNhanVienMotNgay)
+                SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien", mydb.getConnection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                int soNhanVien = table.Rows.Count;
+                Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
+
+                // Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+
+                int[,] A = new int[soNhanVien, soNhanVien];
+                A[0, 0] = 3;
+                A[1, 0] = 7;
+                A[2, 0] = 7;
+                A[3, 0] = 7;
+                A[4, 0] = 7;
+                A[5, 0] = 11;
+
+
+                for (int cot = 1; cot < soNhanVien; cot++)
                 {
-                    string tg = "";
-                    switch (clv.Value)
+                    for (int hang = 0; hang < soNhanVien; hang++)
                     {
-                        case 3:
-                            tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString(); 
-                            break;
-                        case 7:
-                            tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
-                            break;
-                        case 11:
-                            tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
-                            break;
-                       /* case 6:
-                            tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
-                            break;
-                        case 7:
-                            tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
-                            break;*/
-
-
+                        if (hang == 0)
+                            A[hang, cot] = A[soNhanVien - 1, cot - 1];
+                        else
+                            A[hang, cot] = A[hang - 1, cot - 1];
                     }
-                    dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
                 }
+                DataTable dataTable = new DataTable();
+
+                DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
+                colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
+                dataTable.Columns.Add(colNgay);
+
+                dataTable.Columns.Add("Nhân viên");
+                dataTable.Columns.Add("Ca");
+                for (int i = 0; i < soNhanVien; i++)
+                {
+
+                    for (int j = 0; j < soNhanVien; j++)
+                    {
+
+                        string maNV = table.Rows[j][0].ToString();
+                        CaNhanVienMotNgay[maNV] = A[j, i];
+                    }
+                    foreach (var clv in CaNhanVienMotNgay)
+                    {
+                        string tg = "";
+                        switch (clv.Value)
+                        {
+                            case 3:
+                                tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
+                                break;
+                            case 7:
+                                tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
+                                break;
+                            case 11:
+                                tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
+                                break;
+                                /* case 6:
+                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
+                                     break;
+                                 case 7:
+                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
+                                     break;*/
+
+
+                        }
+                        dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
+                    }
+                }
+
+                MessageBox.Show(dataTable.Rows.Count.ToString());
+                dataGridView1.DataSource = dataTable;
+                dataGridView1.AllowUserToAddRows = false;
+
+                dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
-
-            MessageBox.Show(dataTable.Rows.Count.ToString());
-            dataGridView1.DataSource = dataTable;
-            dataGridView1.AllowUserToAddRows = false;
-
-            dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
         }
 
