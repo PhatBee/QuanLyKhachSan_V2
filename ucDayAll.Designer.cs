@@ -56,6 +56,7 @@
             this.lblLichTruc.Size = new System.Drawing.Size(230, 141);
             this.lblLichTruc.TabIndex = 2;
             this.lblLichTruc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblLichTruc.Click += new System.EventHandler(this.lblLichTruc_Click);
             // 
             // checkBox1
             // 

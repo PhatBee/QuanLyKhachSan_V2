@@ -325,7 +325,7 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Vui lòng thêm Hình Ảnh", "Thêm nhân viên", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (!Regex.IsMatch(tbxHoTen.Text, "^[a-zA-Z\\s]+$"))
+            else if (!Regex.IsMatch(tbxHoTen.Text, @"[\p{L}]+$"))
             {
                 MessageBox.Show("Họ Tên chỉ bao gồm kí tự và khoảng trắng", "Thêm nhân viên", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
             }

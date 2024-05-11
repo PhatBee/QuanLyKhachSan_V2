@@ -27,6 +27,11 @@ namespace QuanLyKhachSan
             // MessageBox.Show(LichTrucForm._month + "/" + _day + "/" + LichTrucForm._year);
         }
 
+        private void lblLichTruc_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ucDayAll_Load(object sender, EventArgs e)
         {
             if (_day != "")
