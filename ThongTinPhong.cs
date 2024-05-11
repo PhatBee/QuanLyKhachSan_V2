@@ -21,6 +21,8 @@ namespace QuanLyKhachSan
 
         DataTable dt = new DataTable();
         MYDB mydb = new MYDB();
+
+        int tongtien;
         public void hienThiThongTinPhong()
         {
             SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
@@ -78,12 +80,6 @@ namespace QuanLyKhachSan
             dataGridView1.AllowUserToAddRows = false;
 
 
-           
-            
-
-
-
-
             int tongTienDichVu = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -93,16 +89,22 @@ namespace QuanLyKhachSan
                     tongTienDichVu += Convert.ToInt32(row.Cells[4].Value.ToString());          // Chỉnh lại thứ tự của cột nếu đã ẩn đi MaPhong                                                          
                 }
             }
-            lblTienDV.Text = tongTienDichVu.ToString();
+            lblTienDV.Text = tongTienDichVu.ToString("#,##0");
             TimeSpan kc = datiRa.Value - datiVao.Value;
             int songay = (int)kc.TotalDays;
             lblSoNgay.Text = songay.ToString();
 
             lblGiaPhong.Text = tbxGiaPhong.Text;
 
-            lblTienPhong.Text = (songay * Convert.ToInt32(lblGiaPhong.Text)).ToString();
+            int tienphong = (songay * Convert.ToInt32(lblGiaPhong.Text));
 
-            lblThanhToan.Text = (Convert.ToInt32(lblTienPhong.Text) + Convert.ToInt32(lblTienDV.Text)).ToString();
+            lblTienPhong.Text = tienphong.ToString("#,##0");
+
+            tongtien = tienphong + Convert.ToInt32(tongTienDichVu);
+
+            lblThanhToan.Text = (tienphong + Convert.ToInt32(tongTienDichVu)).ToString("#,##0");
+
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -165,6 +167,26 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 mydb.closeConection();
             }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Đơn Giá" || dataGridView1.Columns[e.ColumnIndex].Name == "Tổng")
+            {
+                // Kiểm tra xem giá trị của ô hiện tại có phải là số nguyên không
+                if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal value))
+                {
+                    // Định dạng lại giá trị thành "#,##0"
+                    e.Value = value.ToString("#,##0");
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            ThanhToanForm frm = new ThanhToanForm(tongtien.ToString(), tbxSoPhong.Text);
+            frm.ShowDialog();
         }
     }
 }
