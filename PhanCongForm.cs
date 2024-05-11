@@ -477,7 +477,8 @@ namespace QuanLyKhachSan
 
         private void btnXemDanhSach_Click(object sender, EventArgs e)
         {
-
+            LichTrucTatCaNhanVien frm = new LichTrucTatCaNhanVien();
+            frm.ShowDialog();
         }
         
 
