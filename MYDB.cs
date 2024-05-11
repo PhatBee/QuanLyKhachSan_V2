@@ -10,7 +10,12 @@ namespace QuanLyKhachSan
 {
     internal class MYDB
     {
-        private static string connectionSTR = "Data Source=.;Initial Catalog=QuanLyKhachSan;Persist Security Info=True;User ID=sa;Password=1234;Encrypt=True;TrustServerCertificate=True";
+        // Tân
+        // private static string connectionSTR = "Data Source=.;Initial Catalog=QuanLyKhachSan;Persist Security Info=True;User ID=sa;Password=1234;Encrypt=True;TrustServerCertificate=True";
+        
+        // Bee
+        private static string connectionSTR = "Data Source=LAPTOP-1BLCIFVL\\PHATBEE;Initial Catalog=QuanLyKhachSan;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
         // SqlConnection con = new SqlConnection("Data Source=azureforwin.database.windows.net;Initial Catalog=QuanLyKhachSan;User ID=phatbee;Password=Bee30092004.;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         SqlConnection con = new SqlConnection(connectionSTR);

@@ -149,6 +149,12 @@
     <Compile Include="ucDay.Designer.cs">
       <DependentUpon>ucDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucDayAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDayAll.Designer.cs">
+      <DependentUpon>ucDayAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlRoom.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucDay.resx">
       <DependentUpon>ucDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDayAll.resx">
+      <DependentUpon>ucDayAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlRoom.resx">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
