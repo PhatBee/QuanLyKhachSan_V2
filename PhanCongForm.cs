@@ -480,39 +480,41 @@ namespace QuanLyKhachSan
             LichTrucTatCaNhanVien frm = new LichTrucTatCaNhanVien();
             frm.ShowDialog();
         }
-        
+
 
         public void phanCongLaoCong()
         {
-                DateTime date = dtpBatDau.Value;
-            
-                SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien Where MaCV = 'CV003'", mydb.getConnection);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                int soNhanVien = table.Rows.Count;
-                if(soNhanVien < 6)
-                {
-                    MessageBox.Show("Không đủ số lượng lao công để phân công", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
+            DateTime date = dtpBatDau.Value;
 
-                //Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
+            SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien Where MaCV = 'CV003'", mydb.getConnection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            int soNhanVien = table.Rows.Count;
+            if (soNhanVien < 6)
+            {
+                MessageBox.Show("Không đủ số lượng lao công để phân công", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
-                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adpt.Fill(dt);
+            //Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
 
-                int[,] A = new int[soNhanVien, soNhanVien];
-                A[0, 0] = 3;
-                A[1, 0] = 7;
-                A[2, 0] = 7;
-                A[3, 0] = 7;
-                A[4, 0] = 7;
-                A[5, 0] = 11;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int[,] A = new int[soNhanVien, soNhanVien];
+            A[0, 0] = 3;
+            A[1, 0] = 7;
+            A[2, 0] = 7;
+            A[3, 0] = 7;
+            A[4, 0] = 7;
+            A[5, 0] = 11;
 
 
+            if (LaoCongHopLe(date))
+            {
                 for (int cot = 1; cot < soNhanVien; cot++)
                 {
                     for (int hang = 0; hang < soNhanVien; hang++)
@@ -563,6 +565,7 @@ namespace QuanLyKhachSan
                 dataGridView1.DataSource = dataTable;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
         public void phanCongQuanLy()
         {
@@ -592,65 +595,68 @@ namespace QuanLyKhachSan
             A[2, 0] = 7;
 
 
-            for (int cot = 1; cot < soNhanVien; cot++)
+            if (QuanLyHopLe(date))
             {
-                for (int hang = 0; hang < soNhanVien; hang++)
+                for (int cot = 1; cot < soNhanVien; cot++)
                 {
-                    if (hang == 0)
-                        A[hang, cot] = A[soNhanVien - 1, cot - 1];
-                    else
-                        A[hang, cot] = A[hang - 1, cot - 1];
-                }
-            }
-            DataTable dataTable = new DataTable();
-
-            DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
-            colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
-            dataTable.Columns.Add(colNgay);
-
-            dataTable.Columns.Add("Nhân viên");
-            dataTable.Columns.Add("Ca");
-            for (int i = 0; i < soNhanVien; i++)
-            {
-
-                for (int j = 0; j < soNhanVien; j++)
-                {
-
-                    string maNV = table.Rows[j][0].ToString();
-                    CaNhanVienMotNgay[maNV] = A[j, i];
-                }
-                foreach (var clv in CaNhanVienMotNgay)
-                {
-                    string tg = "";
-                    switch (clv.Value)
+                    for (int hang = 0; hang < soNhanVien; hang++)
                     {
-                        case 3:
-                            tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
-                            break;
-                        case 7:
-                            tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
-                            break;
-                        case 11:
-                            tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
-                            break;
-                            /* case 6:
-                                 tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
-                                 break;
-                             case 7:
-                                 tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
-                                 break;*/
-
-
+                        if (hang == 0)
+                            A[hang, cot] = A[soNhanVien - 1, cot - 1];
+                        else
+                            A[hang, cot] = A[hang - 1, cot - 1];
                     }
-                    dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
                 }
+                DataTable dataTable = new DataTable();
+
+                DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
+                colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
+                dataTable.Columns.Add(colNgay);
+
+                dataTable.Columns.Add("Nhân viên");
+                dataTable.Columns.Add("Ca");
+                for (int i = 0; i < soNhanVien; i++)
+                {
+
+                    for (int j = 0; j < soNhanVien; j++)
+                    {
+
+                        string maNV = table.Rows[j][0].ToString();
+                        CaNhanVienMotNgay[maNV] = A[j, i];
+                    }
+                    foreach (var clv in CaNhanVienMotNgay)
+                    {
+                        string tg = "";
+                        switch (clv.Value)
+                        {
+                            case 3:
+                                tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
+                                break;
+                            case 7:
+                                tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
+                                break;
+                            case 11:
+                                tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
+                                break;
+                                /* case 6:
+                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
+                                     break;
+                                 case 7:
+                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
+                                     break;*/
+
+
+                        }
+                        dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
+                    }
+                }
+
+                MessageBox.Show(dataTable.Rows.Count.ToString());
+                dataGridView1.DataSource = dataTable;
+                dataGridView1.AllowUserToAddRows = false;
+
+                dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
-
-            MessageBox.Show(dataTable.Rows.Count.ToString());
-            dataGridView1.DataSource = dataTable;
-            dataGridView1.AllowUserToAddRows = false;
-
-            dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
      
         }
 
@@ -684,62 +690,65 @@ namespace QuanLyKhachSan
             A[4, 0] = 5;
 
 
-            for (int cot = 1; cot < soNhanVien; cot++)
+            if (TiepTanHopLe(date))
             {
-                for (int hang = 0; hang < soNhanVien; hang++)
+                for (int cot = 1; cot < soNhanVien; cot++)
                 {
-                    if (hang == 0)
-                        A[hang, cot] = A[soNhanVien - 1, cot - 1];
-                    else
-                        A[hang, cot] = A[hang - 1, cot - 1];
-                }
-            }
-            DataTable dataTable = new DataTable();
-
-            DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
-            colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
-            dataTable.Columns.Add(colNgay);
-
-            dataTable.Columns.Add("Nhân viên");
-            dataTable.Columns.Add("Ca");
-            for (int i = 0; i < soNhanVien; i++)
-            {
-
-                for (int j = 0; j < soNhanVien; j++)
-                {
-
-                    string maNV = table.Rows[j][0].ToString();
-                    CaNhanVienMotNgay[maNV] = A[j, i];
-                }
-                foreach (var clv in CaNhanVienMotNgay)
-                {
-                    string tg = "";
-                    switch (clv.Value)
+                    for (int hang = 0; hang < soNhanVien; hang++)
                     {
-                        case 3:
-                            tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
-                            break;
-                        case 7:
-                            tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
-                            break;
-                        case 11:
-                            tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
-                            break;
-                        case 5:
-                            tg = dt.Rows[4]["ChiTiet"].ToString() ;
-                            break;
-
-
+                        if (hang == 0)
+                            A[hang, cot] = A[soNhanVien - 1, cot - 1];
+                        else
+                            A[hang, cot] = A[hang - 1, cot - 1];
                     }
-                    dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
                 }
+                DataTable dataTable = new DataTable();
 
+                DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
+                colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
+                dataTable.Columns.Add(colNgay);
+
+                dataTable.Columns.Add("Nhân viên");
+                dataTable.Columns.Add("Ca");
+                for (int i = 0; i < soNhanVien; i++)
+                {
+
+                    for (int j = 0; j < soNhanVien; j++)
+                    {
+
+                        string maNV = table.Rows[j][0].ToString();
+                        CaNhanVienMotNgay[maNV] = A[j, i];
+                    }
+                    foreach (var clv in CaNhanVienMotNgay)
+                    {
+                        string tg = "";
+                        switch (clv.Value)
+                        {
+                            case 3:
+                                tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
+                                break;
+                            case 7:
+                                tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
+                                break;
+                            case 11:
+                                tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
+                                break;
+                            case 5:
+                                tg = dt.Rows[4]["ChiTiet"].ToString();
+                                break;
+
+
+                        }
+                        dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
+                    }
+
+                }
+                MessageBox.Show(dataTable.Rows.Count.ToString());
+                dataGridView1.DataSource = dataTable;
+                dataGridView1.AllowUserToAddRows = false;
+
+                dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
-            MessageBox.Show(dataTable.Rows.Count.ToString());
-            dataGridView1.DataSource = dataTable;
-            dataGridView1.AllowUserToAddRows = false;
-
-            dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
         private void buttonPhanCong_Click(object sender, EventArgs e)
         {
@@ -833,6 +842,156 @@ namespace QuanLyKhachSan
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi phân ca, vui lòng xem lại \n\nThông tin lỗi: " + ex.Message, "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool QuanLyHopLe(DateTime ngay)
+        {
+            if (ngay.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT Ngay FROM PhanCong " +
+                "INNER JOIN NhanVien ON PhanCong.MaNV = NhanVien.MaNV " +
+                "WHERE MaCV = @mcv", mydb.getConnection);
+            cmd.Parameters.Add("@mcv", SqlDbType.VarChar).Value = "CV001";
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int n = dt.Rows.Count;
+            if (n > 0)
+            {
+                DateTime datetime = Convert.ToDateTime(dt.Rows[n - 1][0]);
+                ngay = new DateTime(ngay.Year, ngay.Month, ngay.Day);
+                if (datetime >= ngay)
+                {
+                    MessageBox.Show("Thời gian phân công cho quản lý không hợp lệ, hãy phân công bắt đầu từ ngày: " + datetime.AddDays(1).ToString(), "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else if (datetime.AddDays(3) < ngay)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày cuối cùng không quá 3 ngày, ngày phân công quản lý đầu tiên tiếp theo là: " + datetime.AddDays(1).ToString(), "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Now.Date.AddDays(3) < ngay.Date)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày hiện tại không quá 3 ngày ", "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }    
+            }
+        }
+
+        private bool LaoCongHopLe(DateTime ngay)
+        {
+            if (ngay.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT Ngay FROM PhanCong " +
+                "INNER JOIN NhanVien ON PhanCong.MaNV = NhanVien.MaNV " +
+                "WHERE MaCV = @mcv", mydb.getConnection);
+            cmd.Parameters.Add("@mcv", SqlDbType.VarChar).Value = "CV003";
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int n = dt.Rows.Count;
+            if (n > 0)
+            {
+                DateTime datetime = Convert.ToDateTime(dt.Rows[n - 1][0]);
+                ngay = new DateTime(ngay.Year, ngay.Month, ngay.Day);
+                if (datetime >= ngay)
+                {
+                    MessageBox.Show("Thời gian phân công cho lao công không hợp lệ, hãy phân công bắt đầu từ ngày: " + datetime.AddDays(1).ToString(), "Phân công lao công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else if (datetime.AddDays(3) < ngay)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày cuối cùng không quá 3 ngày, ngày phân công lao công đầu tiên tiếp theo là: " + datetime.AddDays(1).ToString(), "Phân công lao công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Now.Date.AddDays(3) < ngay.Date)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày hiện tại không quá 3 ngày ", "Phân công lao công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        private bool TiepTanHopLe(DateTime ngay)
+        {
+            if (ngay.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công tiếp tân", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT Ngay FROM PhanCong " +
+                "INNER JOIN NhanVien ON PhanCong.MaNV = NhanVien.MaNV " +
+                "WHERE MaCV = @mcv", mydb.getConnection);
+            cmd.Parameters.Add("@mcv", SqlDbType.VarChar).Value = "CV002";
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int n = dt.Rows.Count;
+            if (n > 0)
+            {
+                DateTime datetime = Convert.ToDateTime(dt.Rows[n - 1][0]);
+                ngay = new DateTime(ngay.Year, ngay.Month, ngay.Day);
+                if (datetime >= ngay)
+                {
+                    MessageBox.Show("Thời gian phân công cho tiếp tân không hợp lệ, hãy phân công bắt đầu từ ngày: " + datetime.AddDays(1).ToString(), "Phân công tiếp tân", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else if (datetime.AddDays(3) < ngay)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày cuối cùng không quá 3 ngày, ngày phân công tiếp tân đầu tiên tiếp theo là: " + datetime.AddDays(1).ToString(), "Phân công tiếp tân", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Now.Date.AddDays(3) < ngay.Date)
+                {
+                    MessageBox.Show("Thời gian phân công quá xa, hãy phân công cách ngày hiện tại không quá 3 ngày ", "Phân công tiếp tân", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
     }
