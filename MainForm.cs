@@ -142,5 +142,11 @@ namespace QuanLyKhachSan
         {
             OpenChildForm(new LichTrucForm());
         }
+
+        private void pnDiemDanh_Click(object sender, EventArgs e)
+        {
+            DiemDanhForm diemDanhForm = new DiemDanhForm();
+            diemDanhForm.ShowDialog();
+        }
     }
 }

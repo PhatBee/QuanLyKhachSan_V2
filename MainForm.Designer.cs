@@ -54,6 +54,7 @@
             this.picQLNV = new System.Windows.Forms.PictureBox();
             this.picLichTruc = new System.Windows.Forms.PictureBox();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.pnDiemDanh = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.pnDSPhong.SuspendLayout();
             this.pnQLNV.SuspendLayout();
@@ -232,6 +233,7 @@
             this.flowLayoutPanel1.Controls.Add(this.pnThongKe);
             this.flowLayoutPanel1.Controls.Add(this.pnQLNV);
             this.flowLayoutPanel1.Controls.Add(this.pnLichTruc);
+            this.flowLayoutPanel1.Controls.Add(this.pnDiemDanh);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 54);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 848);
@@ -347,6 +349,14 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // pnDiemDanh
+            // 
+            this.pnDiemDanh.Location = new System.Drawing.Point(3, 393);
+            this.pnDiemDanh.Name = "pnDiemDanh";
+            this.pnDiemDanh.Size = new System.Drawing.Size(227, 57);
+            this.pnDiemDanh.TabIndex = 6;
+            this.pnDiemDanh.Click += new System.EventHandler(this.pnDiemDanh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -415,5 +425,6 @@
         private System.Windows.Forms.Panel pnLichTruc;
         private System.Windows.Forms.PictureBox picLichTruc;
         private System.Windows.Forms.Label lblLichTruc;
+        private System.Windows.Forms.Panel pnDiemDanh;
     }
 }
