@@ -162,6 +162,7 @@
             this.btnXemDanhSach.TabIndex = 20;
             this.btnXemDanhSach.Text = "Xem danh sách trực";
             this.btnXemDanhSach.UseVisualStyleBackColor = true;
+            this.btnXemDanhSach.Click += new System.EventHandler(this.btnXemDanhSach_Click);
             // 
             // btnLuu2
             // 
@@ -185,7 +186,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Aptos", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(0, 20);
             this.label5.Name = "label5";

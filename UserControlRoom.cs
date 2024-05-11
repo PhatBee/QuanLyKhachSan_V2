@@ -52,5 +52,10 @@ namespace QuanLyKhachSan
             DatPhongForm frm = new DatPhongForm(maphong);
             frm.ShowDialog();
         }
+
+        private void btnTra_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

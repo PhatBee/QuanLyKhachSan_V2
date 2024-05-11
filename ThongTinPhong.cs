@@ -20,10 +20,9 @@ namespace QuanLyKhachSan
         }
 
         DataTable dt = new DataTable();
-
-        private void ThongTinPhong_Load(object sender, EventArgs e)
+        MYDB mydb = new MYDB();
+        public void hienThiThongTinPhong()
         {
-            MYDB mydb = new MYDB();
             SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
                 "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                 "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
@@ -32,7 +31,7 @@ namespace QuanLyKhachSan
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             adpt.Fill(dt);
 
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 tbxGiaPhong.Text = dt.Rows[0]["DonGia"].ToString();
                 datiVao.Value = (DateTime)dt.Rows[0]["NgayDat"];
@@ -45,10 +44,17 @@ namespace QuanLyKhachSan
             }
             else
             {
-                MessageBox.Show("Phòng đang trống", "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information );
+                MessageBox.Show("Phòng đang trống", "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
+        }
 
+        private void ThongTinPhong_Load(object sender, EventArgs e)
+        {
+
+            hienThiThongTinPhong();
+
+            // Load thông tin cho combobox Dịch Vụ
             SqlCommand cmd2 = new SqlCommand("SELECT * FROM DichVu", mydb.getConnection);
             SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
             DataTable dt2 = new DataTable();
@@ -58,6 +64,7 @@ namespace QuanLyKhachSan
             cbxDV.DisplayMember = "TenDV";
             cbxDV.ValueMember = "MaDV";
 
+            dataGridView1.RowTemplate.Height = 50;
             SqlCommand cmd3 = new SqlCommand("SELECT MaPhong, TenDV 'Tên Dịch Vụ', DonGia 'Đơn Giá', Count(TenDV) 'Số Lượng', Sum(DonGia) 'Tổng' " +
                 "FROM DichVuPhong INNER JOIN DichVu ON DichVu.MaDV = DichVuPhong.MaDV " +
                 "Where MaPhong = @maphong and MaHD = @mahd " +
@@ -69,6 +76,13 @@ namespace QuanLyKhachSan
             adapter.Fill(dt3);
             dataGridView1.DataSource = dt3;
             dataGridView1.AllowUserToAddRows = false;
+
+
+           
+            
+
+
+
 
             int tongTienDichVu = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)

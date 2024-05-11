@@ -83,6 +83,7 @@
             this.btnTra.TabIndex = 5;
             this.btnTra.Text = "Trả";
             this.btnTra.UseVisualStyleBackColor = true;
+            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
             // 
             // UserControlRoom
             // 

@@ -103,6 +103,16 @@ namespace QuanLyKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buttonThem {
+            get {
+                object obj = ResourceManager.GetObject("buttonThem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clipboard_7428578 {
             get {
                 object obj = ResourceManager.GetObject("clipboard_7428578", resourceCulture);

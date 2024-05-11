@@ -462,6 +462,11 @@ namespace QuanLyKhachSan
         {
             this.Close();
         }
+
+        private void btnXemDanhSach_Click(object sender, EventArgs e)
+        {
+
+        }
     }
         
 }

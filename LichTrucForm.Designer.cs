@@ -55,7 +55,7 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
             this.label7.Location = new System.Drawing.Point(1094, 67);
             this.label7.Name = "label7";
@@ -66,7 +66,7 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(917, 67);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(171, 24);
@@ -76,7 +76,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(740, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 24);
@@ -86,7 +86,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(563, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(171, 24);
@@ -96,7 +96,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(386, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 24);
@@ -106,7 +106,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(209, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 24);
@@ -116,7 +116,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(32, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 24);
@@ -135,7 +135,7 @@
             // picOTruoc
             // 
             this.picOTruoc.Image = global::QuanLyKhachSan.Properties.Resources._2;
-            this.picOTruoc.Location = new System.Drawing.Point(225, 9);
+            this.picOTruoc.Location = new System.Drawing.Point(243, 9);
             this.picOTruoc.Name = "picOTruoc";
             this.picOTruoc.Size = new System.Drawing.Size(44, 25);
             this.picOTruoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +146,7 @@
             // picTiepTheo
             // 
             this.picTiepTheo.Image = global::QuanLyKhachSan.Properties.Resources.images;
-            this.picTiepTheo.Location = new System.Drawing.Point(266, 9);
+            this.picTiepTheo.Location = new System.Drawing.Point(284, 9);
             this.picTiepTheo.Name = "picTiepTheo";
             this.picTiepTheo.Size = new System.Drawing.Size(44, 25);
             this.picTiepTheo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
