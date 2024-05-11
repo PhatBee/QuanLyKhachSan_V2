@@ -18,11 +18,12 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
         }
+        MYDB mydb = new MYDB();
 
         private void btnPhanCong_Click(object sender, EventArgs e)
         {
 
-            MYDB mydb = new MYDB();
+            
             DateTime date = dtpBatDau.Value;
 
             if (thoiGianHopLe(date))
@@ -167,7 +168,7 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            MYDB mydb = new MYDB();
+            
             SqlCommand cmd = new SqlCommand("SELECT DISTINCT Ngay FROM PhanCong", mydb.getConnection);
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -201,13 +202,24 @@ namespace QuanLyKhachSan
 
         private void PhanCongForm_Load(object sender, EventArgs e)
         {
+            string query = "Select * From ChucVu ";
+            cboChonChucVu.DataSource = createTable(query);
+            cboChonChucVu.DisplayMember = "TenCV";
+            cboChonChucVu.ValueMember = "MaCV";
 
+        }
+        public DataTable createTable(string query)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(query, mydb.getConnection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             PHANCONG pc = new PHANCONG();
-            MYDB mydb = new MYDB();
+           
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
@@ -467,24 +479,24 @@ namespace QuanLyKhachSan
         {
 
         }
+        
 
-        private void buttonPhanCong_Click(object sender, EventArgs e)
+        public void phanCongLaoCong()
         {
-            MYDB mydb = new MYDB();
-            DateTime date = dtpBatDau.Value;
-           
-
-            if (thoiGianHopLe(date))
-            {
-
-
-                SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien", mydb.getConnection);
+                DateTime date = dtpBatDau.Value;
+            
+                SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien Where MaCV = 'CV003'", mydb.getConnection);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 int soNhanVien = table.Rows.Count;
+                if(soNhanVien < 6)
+                {
+                    MessageBox.Show("Không đủ số lượng lao công để phân công", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
 
-                // Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
+                //Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd);
@@ -541,14 +553,6 @@ namespace QuanLyKhachSan
                             case 11:
                                 tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
                                 break;
-                                /* case 6:
-                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
-                                     break;
-                                 case 7:
-                                     tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
-                                     break;*/
-
-
                         }
                         dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
                     }
@@ -557,8 +561,198 @@ namespace QuanLyKhachSan
                 MessageBox.Show(dataTable.Rows.Count.ToString());
                 dataGridView1.DataSource = dataTable;
                 dataGridView1.AllowUserToAddRows = false;
-
                 dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
+        public void phanCongQuanLy()
+        {
+            DateTime date = dtpBatDau.Value;
+           
+            SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien Where MaCV = 'CV001'", mydb.getConnection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            int soNhanVien = table.Rows.Count;
+            if (soNhanVien < 3)
+            {
+                MessageBox.Show("Không đủ số lượng quản lý để phân công", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
+
+            //Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int[,] A = new int[soNhanVien, soNhanVien];
+            A[0, 0] = 3;
+            A[1, 0] = 7;
+            A[2, 0] = 7;
+
+
+            for (int cot = 1; cot < soNhanVien; cot++)
+            {
+                for (int hang = 0; hang < soNhanVien; hang++)
+                {
+                    if (hang == 0)
+                        A[hang, cot] = A[soNhanVien - 1, cot - 1];
+                    else
+                        A[hang, cot] = A[hang - 1, cot - 1];
+                }
+            }
+            DataTable dataTable = new DataTable();
+
+            DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
+            colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
+            dataTable.Columns.Add(colNgay);
+
+            dataTable.Columns.Add("Nhân viên");
+            dataTable.Columns.Add("Ca");
+            for (int i = 0; i < soNhanVien; i++)
+            {
+
+                for (int j = 0; j < soNhanVien; j++)
+                {
+
+                    string maNV = table.Rows[j][0].ToString();
+                    CaNhanVienMotNgay[maNV] = A[j, i];
+                }
+                foreach (var clv in CaNhanVienMotNgay)
+                {
+                    string tg = "";
+                    switch (clv.Value)
+                    {
+                        case 3:
+                            tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
+                            break;
+                        case 7:
+                            tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
+                            break;
+                        case 11:
+                            tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
+                            break;
+                            /* case 6:
+                                 tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[3]["ChiTiet"].ToString();
+                                 break;
+                             case 7:
+                                 tg = dt.Rows[1]["ChiTiet"].ToString() + "và " + dt.Rows[4]["ChiTiet"].ToString();
+                                 break;*/
+
+
+                    }
+                    dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
+                }
+            }
+
+            MessageBox.Show(dataTable.Rows.Count.ToString());
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.AllowUserToAddRows = false;
+
+            dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
+     
+        }
+
+        public void phanCongTiepTan()
+        {
+            DateTime date = dtpBatDau.Value;
+           
+            SqlDataAdapter adapter = new SqlDataAdapter("Select MaNV from NhanVien Where MaCV = 'CV002'", mydb.getConnection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            int soNhanVien = table.Rows.Count;
+            if (soNhanVien < 5)
+            {
+                MessageBox.Show("Không đủ số lượng tiếp tân để phân công", "Phân công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Dictionary<string, int> CaNhanVienMotNgay = new Dictionary<string, int>();
+
+            //Dictionary<int, Dictionary<string, int>> caLamViec = new Dictionary<int, Dictionary<string, int>>();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            int[,] A = new int[soNhanVien, soNhanVien];
+            A[0, 0] = 3;
+            A[1, 0] = 7;
+            A[2, 0] = 7;
+            A[3, 0] = 11;
+            A[4, 0] = 5;
+
+
+            for (int cot = 1; cot < soNhanVien; cot++)
+            {
+                for (int hang = 0; hang < soNhanVien; hang++)
+                {
+                    if (hang == 0)
+                        A[hang, cot] = A[soNhanVien - 1, cot - 1];
+                    else
+                        A[hang, cot] = A[hang - 1, cot - 1];
+                }
+            }
+            DataTable dataTable = new DataTable();
+
+            DataColumn colNgay = new DataColumn("Ngày", typeof(DateTime));
+            colNgay.DateTimeMode = DataSetDateTime.UnspecifiedLocal;
+            dataTable.Columns.Add(colNgay);
+
+            dataTable.Columns.Add("Nhân viên");
+            dataTable.Columns.Add("Ca");
+            for (int i = 0; i < soNhanVien; i++)
+            {
+
+                for (int j = 0; j < soNhanVien; j++)
+                {
+
+                    string maNV = table.Rows[j][0].ToString();
+                    CaNhanVienMotNgay[maNV] = A[j, i];
+                }
+                foreach (var clv in CaNhanVienMotNgay)
+                {
+                    string tg = "";
+                    switch (clv.Value)
+                    {
+                        case 3:
+                            tg = dt.Rows[0]["ChiTiet"].ToString() + " và " + dt.Rows[1]["ChiTiet"].ToString();
+                            break;
+                        case 7:
+                            tg = dt.Rows[2]["ChiTiet"].ToString() + " và " + dt.Rows[3]["ChiTiet"].ToString();
+                            break;
+                        case 11:
+                            tg = dt.Rows[4]["ChiTiet"].ToString() + " và " + dt.Rows[5]["ChiTiet"].ToString();
+                            break;
+                        case 5:
+                            tg = dt.Rows[4]["ChiTiet"].ToString() ;
+                            break;
+
+
+                    }
+                    dataTable.Rows.Add(date.AddDays(i), clv.Key, tg);
+                }
+
+            }
+            MessageBox.Show(dataTable.Rows.Count.ToString());
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.AllowUserToAddRows = false;
+
+            dataGridView1.Columns["Ngày"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
+        private void buttonPhanCong_Click(object sender, EventArgs e)
+        {
+            if(cboChonChucVu.SelectedValue.ToString() == "CV003")
+            {
+                phanCongLaoCong();
+            }
+            else if(cboChonChucVu.SelectedValue.ToString() == "CV001")
+            {
+                phanCongQuanLy();
+            }
+            else
+            {
+                phanCongTiepTan();
             }
 
         }
@@ -566,7 +760,7 @@ namespace QuanLyKhachSan
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             PHANCONG pc = new PHANCONG();
-            MYDB mydb = new MYDB();
+           
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM Ca", mydb.getConnection);
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);

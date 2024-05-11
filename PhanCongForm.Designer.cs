@@ -46,6 +46,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonPhanCong = new System.Windows.Forms.Button();
             this.buttonLuu = new System.Windows.Forms.Button();
+            this.cboChonChucVu = new System.Windows.Forms.ComboBox();
             this.panelChuky.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -226,11 +227,20 @@
             this.buttonLuu.UseVisualStyleBackColor = true;
             this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
+            // cboChonChucVu
+            // 
+            this.cboChonChucVu.FormattingEnabled = true;
+            this.cboChonChucVu.Location = new System.Drawing.Point(55, 146);
+            this.cboChonChucVu.Name = "cboChonChucVu";
+            this.cboChonChucVu.Size = new System.Drawing.Size(106, 28);
+            this.cboChonChucVu.TabIndex = 26;
+            // 
             // PhanCongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 806);
+            this.Controls.Add(this.cboChonChucVu);
             this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.buttonPhanCong);
             this.Controls.Add(this.dataGridView2);
@@ -280,5 +290,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonPhanCong;
         private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.ComboBox cboChonChucVu;
     }
 }
