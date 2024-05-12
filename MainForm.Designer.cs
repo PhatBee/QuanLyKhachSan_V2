@@ -34,42 +34,48 @@
             this.lblDSChiTiet = new System.Windows.Forms.Label();
             this.lblDSPhong = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblHoten = new System.Windows.Forms.Label();
             this.lblChucVu = new System.Windows.Forms.Label();
             this.pnDSPhong = new System.Windows.Forms.Panel();
+            this.picDSPhong = new System.Windows.Forms.PictureBox();
             this.pnQLNV = new System.Windows.Forms.Panel();
+            this.picQLNV = new System.Windows.Forms.PictureBox();
             this.pnDSChiTiet = new System.Windows.Forms.Panel();
+            this.picDSChiTiet = new System.Windows.Forms.PictureBox();
             this.pnPhanCong = new System.Windows.Forms.Panel();
+            this.picPhanCong = new System.Windows.Forms.PictureBox();
             this.pnThongKe = new System.Windows.Forms.Panel();
+            this.picThongKe = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnLichTruc = new System.Windows.Forms.Panel();
-            this.lblLichTruc = new System.Windows.Forms.Label();
-            this.pnMain = new System.Windows.Forms.Panel();
-            this.picDSPhong = new System.Windows.Forms.PictureBox();
-            this.picDSChiTiet = new System.Windows.Forms.PictureBox();
-            this.picPhanCong = new System.Windows.Forms.PictureBox();
-            this.picThongKe = new System.Windows.Forms.PictureBox();
-            this.picQLNV = new System.Windows.Forms.PictureBox();
             this.picLichTruc = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblLichTruc = new System.Windows.Forms.Label();
             this.pnDiemDanh = new System.Windows.Forms.Panel();
+            this.pnMain = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.pnDSPhong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSPhong)).BeginInit();
             this.pnQLNV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picQLNV)).BeginInit();
             this.pnDSChiTiet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSChiTiet)).BeginInit();
             this.pnPhanCong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhanCong)).BeginInit();
             this.pnThongKe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picThongKe)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnLichTruc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDSPhong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDSChiTiet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhanCong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picThongKe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picQLNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLichTruc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblThongKe
@@ -122,6 +128,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.picHome);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -129,9 +139,21 @@
             this.panel2.Controls.Add(this.lblChucVu);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1600, 54);
+            this.panel2.Size = new System.Drawing.Size(1600, 84);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // picHome
+            // 
+            this.picHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picHome.Image = global::QuanLyKhachSan.Properties.Resources.structure_15270251;
+            this.picHome.Location = new System.Drawing.Point(3, 3);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(81, 75);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHome.TabIndex = 1;
+            this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // label4
             // 
@@ -179,92 +201,10 @@
             this.pnDSPhong.Controls.Add(this.lblDSPhong);
             this.pnDSPhong.Location = new System.Drawing.Point(3, 3);
             this.pnDSPhong.Name = "pnDSPhong";
-            this.pnDSPhong.Size = new System.Drawing.Size(227, 59);
+            this.pnDSPhong.Size = new System.Drawing.Size(227, 63);
             this.pnDSPhong.TabIndex = 3;
             this.pnDSPhong.Click += new System.EventHandler(this.pnDSPhong_Click);
             this.pnDSPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDSPhong_Paint);
-            // 
-            // pnQLNV
-            // 
-            this.pnQLNV.Controls.Add(this.picQLNV);
-            this.pnQLNV.Controls.Add(this.lblQuanLyNV);
-            this.pnQLNV.Location = new System.Drawing.Point(3, 263);
-            this.pnQLNV.Name = "pnQLNV";
-            this.pnQLNV.Size = new System.Drawing.Size(227, 59);
-            this.pnQLNV.TabIndex = 4;
-            this.pnQLNV.Click += new System.EventHandler(this.pnQLNV_Click);
-            // 
-            // pnDSChiTiet
-            // 
-            this.pnDSChiTiet.Controls.Add(this.picDSChiTiet);
-            this.pnDSChiTiet.Controls.Add(this.lblDSChiTiet);
-            this.pnDSChiTiet.Location = new System.Drawing.Point(3, 68);
-            this.pnDSChiTiet.Name = "pnDSChiTiet";
-            this.pnDSChiTiet.Size = new System.Drawing.Size(227, 59);
-            this.pnDSChiTiet.TabIndex = 4;
-            this.pnDSChiTiet.Click += new System.EventHandler(this.pnDSChiTiet_Click);
-            // 
-            // pnPhanCong
-            // 
-            this.pnPhanCong.Controls.Add(this.picPhanCong);
-            this.pnPhanCong.Controls.Add(this.lblPhanCong);
-            this.pnPhanCong.Location = new System.Drawing.Point(3, 133);
-            this.pnPhanCong.Name = "pnPhanCong";
-            this.pnPhanCong.Size = new System.Drawing.Size(227, 59);
-            this.pnPhanCong.TabIndex = 4;
-            this.pnPhanCong.Click += new System.EventHandler(this.pnPhanCong_Click);
-            // 
-            // pnThongKe
-            // 
-            this.pnThongKe.Controls.Add(this.picThongKe);
-            this.pnThongKe.Controls.Add(this.lblThongKe);
-            this.pnThongKe.Location = new System.Drawing.Point(3, 198);
-            this.pnThongKe.Name = "pnThongKe";
-            this.pnThongKe.Size = new System.Drawing.Size(227, 59);
-            this.pnThongKe.TabIndex = 4;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel1.Controls.Add(this.pnDSPhong);
-            this.flowLayoutPanel1.Controls.Add(this.pnDSChiTiet);
-            this.flowLayoutPanel1.Controls.Add(this.pnPhanCong);
-            this.flowLayoutPanel1.Controls.Add(this.pnThongKe);
-            this.flowLayoutPanel1.Controls.Add(this.pnQLNV);
-            this.flowLayoutPanel1.Controls.Add(this.pnLichTruc);
-            this.flowLayoutPanel1.Controls.Add(this.pnDiemDanh);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 54);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 848);
-            this.flowLayoutPanel1.TabIndex = 5;
-            // 
-            // pnLichTruc
-            // 
-            this.pnLichTruc.Controls.Add(this.picLichTruc);
-            this.pnLichTruc.Controls.Add(this.lblLichTruc);
-            this.pnLichTruc.Location = new System.Drawing.Point(3, 328);
-            this.pnLichTruc.Name = "pnLichTruc";
-            this.pnLichTruc.Size = new System.Drawing.Size(227, 59);
-            this.pnLichTruc.TabIndex = 5;
-            this.pnLichTruc.Click += new System.EventHandler(this.pnLichTruc_Click);
-            // 
-            // lblLichTruc
-            // 
-            this.lblLichTruc.AutoSize = true;
-            this.lblLichTruc.Location = new System.Drawing.Point(66, 18);
-            this.lblLichTruc.Name = "lblLichTruc";
-            this.lblLichTruc.Size = new System.Drawing.Size(69, 20);
-            this.lblLichTruc.TabIndex = 8;
-            this.lblLichTruc.Text = "Lịch trực";
-            this.lblLichTruc.Click += new System.EventHandler(this.lblLichTruc_Click);
-            // 
-            // pnMain
-            // 
-            this.pnMain.Location = new System.Drawing.Point(236, 57);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1364, 845);
-            this.pnMain.TabIndex = 6;
             // 
             // picDSPhong
             // 
@@ -278,40 +218,15 @@
             this.picDSPhong.TabStop = false;
             this.picDSPhong.Click += new System.EventHandler(this.picDSPhong_Click);
             // 
-            // picDSChiTiet
+            // pnQLNV
             // 
-            this.picDSChiTiet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picDSChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.customer_3126649;
-            this.picDSChiTiet.Location = new System.Drawing.Point(3, 3);
-            this.picDSChiTiet.Name = "picDSChiTiet";
-            this.picDSChiTiet.Size = new System.Drawing.Size(50, 50);
-            this.picDSChiTiet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDSChiTiet.TabIndex = 1;
-            this.picDSChiTiet.TabStop = false;
-            this.picDSChiTiet.Click += new System.EventHandler(this.picDSChiTiet_Click);
-            // 
-            // picPhanCong
-            // 
-            this.picPhanCong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picPhanCong.Image = global::QuanLyKhachSan.Properties.Resources.businessman_4686511;
-            this.picPhanCong.Location = new System.Drawing.Point(3, 3);
-            this.picPhanCong.Name = "picPhanCong";
-            this.picPhanCong.Size = new System.Drawing.Size(50, 50);
-            this.picPhanCong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPhanCong.TabIndex = 2;
-            this.picPhanCong.TabStop = false;
-            this.picPhanCong.Click += new System.EventHandler(this.picPhanCong_Click);
-            // 
-            // picThongKe
-            // 
-            this.picThongKe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picThongKe.Image = global::QuanLyKhachSan.Properties.Resources.bar_13716658;
-            this.picThongKe.Location = new System.Drawing.Point(3, 6);
-            this.picThongKe.Name = "picThongKe";
-            this.picThongKe.Size = new System.Drawing.Size(50, 50);
-            this.picThongKe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picThongKe.TabIndex = 2;
-            this.picThongKe.TabStop = false;
+            this.pnQLNV.Controls.Add(this.picQLNV);
+            this.pnQLNV.Controls.Add(this.lblQuanLyNV);
+            this.pnQLNV.Location = new System.Drawing.Point(3, 267);
+            this.pnQLNV.Name = "pnQLNV";
+            this.pnQLNV.Size = new System.Drawing.Size(227, 59);
+            this.pnQLNV.TabIndex = 4;
+            this.pnQLNV.Click += new System.EventHandler(this.pnQLNV_Click);
             // 
             // picQLNV
             // 
@@ -325,6 +240,96 @@
             this.picQLNV.TabStop = false;
             this.picQLNV.Click += new System.EventHandler(this.picQLNV_Click);
             // 
+            // pnDSChiTiet
+            // 
+            this.pnDSChiTiet.Controls.Add(this.picDSChiTiet);
+            this.pnDSChiTiet.Controls.Add(this.lblDSChiTiet);
+            this.pnDSChiTiet.Location = new System.Drawing.Point(3, 72);
+            this.pnDSChiTiet.Name = "pnDSChiTiet";
+            this.pnDSChiTiet.Size = new System.Drawing.Size(227, 59);
+            this.pnDSChiTiet.TabIndex = 4;
+            this.pnDSChiTiet.Click += new System.EventHandler(this.pnDSChiTiet_Click);
+            // 
+            // picDSChiTiet
+            // 
+            this.picDSChiTiet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picDSChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.customer_3126649;
+            this.picDSChiTiet.Location = new System.Drawing.Point(3, 3);
+            this.picDSChiTiet.Name = "picDSChiTiet";
+            this.picDSChiTiet.Size = new System.Drawing.Size(50, 50);
+            this.picDSChiTiet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDSChiTiet.TabIndex = 1;
+            this.picDSChiTiet.TabStop = false;
+            this.picDSChiTiet.Click += new System.EventHandler(this.picDSChiTiet_Click);
+            // 
+            // pnPhanCong
+            // 
+            this.pnPhanCong.Controls.Add(this.picPhanCong);
+            this.pnPhanCong.Controls.Add(this.lblPhanCong);
+            this.pnPhanCong.Location = new System.Drawing.Point(3, 137);
+            this.pnPhanCong.Name = "pnPhanCong";
+            this.pnPhanCong.Size = new System.Drawing.Size(227, 59);
+            this.pnPhanCong.TabIndex = 4;
+            this.pnPhanCong.Click += new System.EventHandler(this.pnPhanCong_Click);
+            // 
+            // picPhanCong
+            // 
+            this.picPhanCong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picPhanCong.Image = global::QuanLyKhachSan.Properties.Resources.businessman_4686511;
+            this.picPhanCong.Location = new System.Drawing.Point(3, 3);
+            this.picPhanCong.Name = "picPhanCong";
+            this.picPhanCong.Size = new System.Drawing.Size(50, 50);
+            this.picPhanCong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPhanCong.TabIndex = 2;
+            this.picPhanCong.TabStop = false;
+            this.picPhanCong.Click += new System.EventHandler(this.picPhanCong_Click);
+            // 
+            // pnThongKe
+            // 
+            this.pnThongKe.Controls.Add(this.picThongKe);
+            this.pnThongKe.Controls.Add(this.lblThongKe);
+            this.pnThongKe.Location = new System.Drawing.Point(3, 202);
+            this.pnThongKe.Name = "pnThongKe";
+            this.pnThongKe.Size = new System.Drawing.Size(227, 59);
+            this.pnThongKe.TabIndex = 4;
+            // 
+            // picThongKe
+            // 
+            this.picThongKe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picThongKe.Image = global::QuanLyKhachSan.Properties.Resources.bar_13716658;
+            this.picThongKe.Location = new System.Drawing.Point(3, 6);
+            this.picThongKe.Name = "picThongKe";
+            this.picThongKe.Size = new System.Drawing.Size(50, 50);
+            this.picThongKe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picThongKe.TabIndex = 2;
+            this.picThongKe.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel1.Controls.Add(this.pnDSPhong);
+            this.flowLayoutPanel1.Controls.Add(this.pnDSChiTiet);
+            this.flowLayoutPanel1.Controls.Add(this.pnPhanCong);
+            this.flowLayoutPanel1.Controls.Add(this.pnThongKe);
+            this.flowLayoutPanel1.Controls.Add(this.pnQLNV);
+            this.flowLayoutPanel1.Controls.Add(this.pnLichTruc);
+            this.flowLayoutPanel1.Controls.Add(this.pnDiemDanh);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 84);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 818);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // pnLichTruc
+            // 
+            this.pnLichTruc.Controls.Add(this.picLichTruc);
+            this.pnLichTruc.Controls.Add(this.lblLichTruc);
+            this.pnLichTruc.Location = new System.Drawing.Point(3, 332);
+            this.pnLichTruc.Name = "pnLichTruc";
+            this.pnLichTruc.Size = new System.Drawing.Size(227, 59);
+            this.pnLichTruc.TabIndex = 5;
+            this.pnLichTruc.Click += new System.EventHandler(this.pnLichTruc_Click);
+            // 
             // picLichTruc
             // 
             this.picLichTruc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -337,31 +342,75 @@
             this.picLichTruc.TabStop = false;
             this.picLichTruc.Click += new System.EventHandler(this.picLichTruc_Click);
             // 
-            // picHome
+            // lblLichTruc
             // 
-            this.picHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picHome.Image = global::QuanLyKhachSan.Properties.Resources.structure_15270251;
-            this.picHome.Location = new System.Drawing.Point(3, 3);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(50, 50);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHome.TabIndex = 1;
-            this.picHome.TabStop = false;
-            this.picHome.Click += new System.EventHandler(this.picHome_Click);
+            this.lblLichTruc.AutoSize = true;
+            this.lblLichTruc.Location = new System.Drawing.Point(66, 18);
+            this.lblLichTruc.Name = "lblLichTruc";
+            this.lblLichTruc.Size = new System.Drawing.Size(69, 20);
+            this.lblLichTruc.TabIndex = 8;
+            this.lblLichTruc.Text = "Lịch trực";
+            this.lblLichTruc.Click += new System.EventHandler(this.lblLichTruc_Click);
             // 
             // pnDiemDanh
             // 
-            this.pnDiemDanh.Location = new System.Drawing.Point(3, 393);
+            this.pnDiemDanh.Location = new System.Drawing.Point(3, 397);
             this.pnDiemDanh.Name = "pnDiemDanh";
             this.pnDiemDanh.Size = new System.Drawing.Size(227, 57);
             this.pnDiemDanh.TabIndex = 6;
             this.pnDiemDanh.Click += new System.EventHandler(this.pnDiemDanh_Click);
             // 
+            // pnMain
+            // 
+            this.pnMain.Location = new System.Drawing.Point(236, 84);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1364, 818);
+            this.pnMain.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.checkin;
+            this.pictureBox1.Location = new System.Drawing.Point(1347, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1343, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Check in";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1447, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Check out";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::QuanLyKhachSan.Properties.Resources.checkout;
+            this.pictureBox2.Location = new System.Drawing.Point(1457, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(58, 49);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.ClientSize = new System.Drawing.Size(1540, 845);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
@@ -374,26 +423,28 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.pnDSPhong.ResumeLayout(false);
             this.pnDSPhong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSPhong)).EndInit();
             this.pnQLNV.ResumeLayout(false);
             this.pnQLNV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picQLNV)).EndInit();
             this.pnDSChiTiet.ResumeLayout(false);
             this.pnDSChiTiet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSChiTiet)).EndInit();
             this.pnPhanCong.ResumeLayout(false);
             this.pnPhanCong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhanCong)).EndInit();
             this.pnThongKe.ResumeLayout(false);
             this.pnThongKe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picThongKe)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnLichTruc.ResumeLayout(false);
             this.pnLichTruc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDSPhong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDSChiTiet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhanCong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picThongKe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picQLNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLichTruc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +477,9 @@
         private System.Windows.Forms.PictureBox picLichTruc;
         private System.Windows.Forms.Label lblLichTruc;
         private System.Windows.Forms.Panel pnDiemDanh;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

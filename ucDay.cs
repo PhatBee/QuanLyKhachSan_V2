@@ -28,9 +28,10 @@ namespace QuanLyKhachSan
                 }
                 SqlCommand command = new SqlCommand("Select ChiTiet From PhanCong INNER JOIN Ca on PhanCong.MaCa = Ca.MaCa Where MaNV = @manv And Ngay = @date ", mydb.getConnection);
                 DateTime.TryParse(date.ToString(), out DateTime ngay);
+                
                 command.Parameters.Add("@date", SqlDbType.Date).Value = ngay;
                 command.Parameters.Add("manv",SqlDbType.VarChar).Value = Globals.GlobalUserID;
-                //MessageBox.Show(Globals.GlobalUserID);
+                //MessageBox.Show(ngay.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -46,6 +47,11 @@ namespace QuanLyKhachSan
             }
                 
             
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         public ucDay(string day)
