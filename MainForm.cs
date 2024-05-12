@@ -191,24 +191,31 @@ namespace QuanLyKhachSan
             {
 
 
-                DateTime tmp = new DateTime(2024, 05, 15);
+                DateTime tmp = new DateTime(2024, 05, 12);
                 DateTime.TryParse(tmp.ToString(), out DateTime ngay);
-                SqlCommand command = new SqlCommand("Update PhanCong Set TgVaoLam = @tgbd Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
-                command.Parameters.Add("@tgbd", SqlDbType.DateTime).Value = DateTime.Now;
-                command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
-                command.Parameters.Add("@ngay", SqlDbType.Date).Value = ngay;
 
-                mydb.openConection();
-                if (command.ExecuteNonQuery() == 1)
+                SqlCommand cmd = new SqlCommand("SELECT * FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+                cmd.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+                cmd.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+
+                if (dt.Rows.Count > 0 ) 
                 {
-                    MessageBox.Show("OK");
-                    mydb.closeConection();
+                    SqlCommand command = new SqlCommand("UPDATE PhanCong Set TgVaoLam = @tgbd Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+                    command.Parameters.Add("@tgbd", SqlDbType.DateTime).Value = DateTime.Now;
+                    command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+                    command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                    mydb.openConection();
+                    command.ExecuteNonQuery();
+
                 }
-                else
-                {
-                    MessageBox.Show("ERRR");
-                    mydb.closeConection();
-                }
+
+
+                mydb.closeConection();
+                
+                
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
