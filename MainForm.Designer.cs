@@ -34,6 +34,10 @@
             this.lblDSChiTiet = new System.Windows.Forms.Label();
             this.lblDSPhong = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCheckOut = new System.Windows.Forms.Label();
+            this.lblCheckIn = new System.Windows.Forms.Label();
+            this.picCheckOut = new System.Windows.Forms.PictureBox();
+            this.picCheckIn = new System.Windows.Forms.PictureBox();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,11 +59,9 @@
             this.lblLichTruc = new System.Windows.Forms.Label();
             this.pnDiemDanh = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheckOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheckIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.pnDSPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDSPhong)).BeginInit();
@@ -74,8 +76,6 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.pnLichTruc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLichTruc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblThongKe
@@ -128,10 +128,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lblCheckOut);
+            this.panel2.Controls.Add(this.lblCheckIn);
+            this.panel2.Controls.Add(this.picCheckOut);
+            this.panel2.Controls.Add(this.picCheckIn);
             this.panel2.Controls.Add(this.picHome);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -142,6 +142,46 @@
             this.panel2.Size = new System.Drawing.Size(1600, 84);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // lblCheckOut
+            // 
+            this.lblCheckOut.AutoSize = true;
+            this.lblCheckOut.Location = new System.Drawing.Point(1447, 61);
+            this.lblCheckOut.Name = "lblCheckOut";
+            this.lblCheckOut.Size = new System.Drawing.Size(81, 20);
+            this.lblCheckOut.TabIndex = 7;
+            this.lblCheckOut.Text = "Check out";
+            // 
+            // lblCheckIn
+            // 
+            this.lblCheckIn.AutoSize = true;
+            this.lblCheckIn.Location = new System.Drawing.Point(1343, 61);
+            this.lblCheckIn.Name = "lblCheckIn";
+            this.lblCheckIn.Size = new System.Drawing.Size(70, 20);
+            this.lblCheckIn.TabIndex = 6;
+            this.lblCheckIn.Text = "Check in";
+            // 
+            // picCheckOut
+            // 
+            this.picCheckOut.Image = global::QuanLyKhachSan.Properties.Resources.checkout;
+            this.picCheckOut.Location = new System.Drawing.Point(1457, 3);
+            this.picCheckOut.Name = "picCheckOut";
+            this.picCheckOut.Size = new System.Drawing.Size(58, 49);
+            this.picCheckOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCheckOut.TabIndex = 5;
+            this.picCheckOut.TabStop = false;
+            this.picCheckOut.Click += new System.EventHandler(this.picCheckOut_Click);
+            // 
+            // picCheckIn
+            // 
+            this.picCheckIn.Image = global::QuanLyKhachSan.Properties.Resources.checkin;
+            this.picCheckIn.Location = new System.Drawing.Point(1347, 0);
+            this.picCheckIn.Name = "picCheckIn";
+            this.picCheckIn.Size = new System.Drawing.Size(63, 58);
+            this.picCheckIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCheckIn.TabIndex = 5;
+            this.picCheckIn.TabStop = false;
+            this.picCheckIn.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // picHome
             // 
@@ -367,45 +407,6 @@
             this.pnMain.Size = new System.Drawing.Size(1364, 818);
             this.pnMain.TabIndex = 6;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.checkin;
-            this.pictureBox1.Location = new System.Drawing.Point(1347, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1343, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Check in";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1447, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Check out";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::QuanLyKhachSan.Properties.Resources.checkout;
-            this.pictureBox2.Location = new System.Drawing.Point(1457, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 49);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -423,6 +424,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheckOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheckIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.pnDSPhong.ResumeLayout(false);
             this.pnDSPhong.PerformLayout();
@@ -443,8 +446,6 @@
             this.pnLichTruc.ResumeLayout(false);
             this.pnLichTruc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLichTruc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,9 +478,9 @@
         private System.Windows.Forms.PictureBox picLichTruc;
         private System.Windows.Forms.Label lblLichTruc;
         private System.Windows.Forms.Panel pnDiemDanh;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picCheckIn;
+        private System.Windows.Forms.Label lblCheckOut;
+        private System.Windows.Forms.Label lblCheckIn;
+        private System.Windows.Forms.PictureBox picCheckOut;
     }
 }

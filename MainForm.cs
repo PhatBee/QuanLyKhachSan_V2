@@ -59,14 +59,14 @@ namespace QuanLyKhachSan
 
         public void hienThiThoiGianLamViec()
         {
-            string ngay = DateTime.Now.Date.ToString();
-            string month = DateTime.Now.Month.ToString();
-            string year = DateTime.Now.Year.ToString();
-            string fullDate = month + "/" + "15" + "/" + year;
-            SqlCommand command = new SqlCommand("Select ChiTiet From PhanCong INNER JOIN Ca on PhanCong.MaCa = Ca.MaCa Where MaNV = @manv And Ngay = @date ", mydb.getConnection);
-            DateTime.TryParse(fullDate.ToString(), out DateTime date);
+            //DateTime tmp = DateTime.Now;
+            DateTime tmp = new DateTime(2024, 05, 15);
 
-            command.Parameters.Add("@date", SqlDbType.Date).Value = date;
+            DateTime.TryParse(tmp.ToString(), out DateTime ngay);
+            SqlCommand command = new SqlCommand("Select ChiTiet From PhanCong INNER JOIN Ca on PhanCong.MaCa = Ca.MaCa Where MaNV = @manv And Ngay = @date ", mydb.getConnection);
+           
+
+            command.Parameters.Add("@date", SqlDbType.Date).Value = ngay;
             command.Parameters.Add("manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
             //MessageBox.Show(Globals.GlobalUserID);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -77,16 +77,25 @@ namespace QuanLyKhachSan
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    tg += dt.Rows[i][0].ToString() + " ";
+                    tg += dt.Rows[i][0].ToString();
+                    if(i<dt.Rows.Count-1)
+                    {
+                        tg += " và ";
+                    }    
                 }
             }
             if (dt.Rows.Count <= 0)
             {
-                label3.Text = "Ca làm việc: Hôm nay bạn không có ca làm việc";
+                label3.Text = "Ca làm việc: Hôm nay bạn không có ca làm việc!";
+                picCheckIn.Hide();
+                picCheckOut.Hide();
+                lblCheckIn.Hide();
+                lblCheckOut.Hide();
+                
             }
             else
             {
-                label3.Text = "Ca làm việc " + tg;
+                label3.Text = "Ca làm việc: " + tg;
             }    
             
         }
@@ -191,7 +200,7 @@ namespace QuanLyKhachSan
             {
 
 
-                DateTime tmp = new DateTime(2024, 05, 12);
+                DateTime tmp = new DateTime(2024, 05, 11);
                 DateTime.TryParse(tmp.ToString(), out DateTime ngay);
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
@@ -209,6 +218,8 @@ namespace QuanLyKhachSan
                     command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
                     mydb.openConection();
                     command.ExecuteNonQuery();
+                    MessageBox.Show("Check in thành công!", "Hệ Thống", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 }
 
@@ -221,6 +232,45 @@ namespace QuanLyKhachSan
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void picCheckOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                DateTime tmp = new DateTime(2024, 05, 11);
+                DateTime.TryParse(tmp.ToString(), out DateTime ngay);
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+                cmd.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+                cmd.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    SqlCommand command = new SqlCommand("UPDATE PhanCong Set TgRaKetThuc = @tgkt Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+                    command.Parameters.Add("@tgkt", SqlDbType.DateTime).Value = DateTime.Now;
+                    command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+                    command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                    mydb.openConection();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Check out thành công!","Hệ Thống",MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+
+                mydb.closeConection();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
