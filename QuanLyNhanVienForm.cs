@@ -209,6 +209,8 @@ namespace QuanLyKhachSan
                     PictureBoxEmployeeImage.Image.Save(hinhanh, PictureBoxEmployeeImage.Image.RawFormat);
                     if (veraccount() && !maexist(manv) && !userexist(user))
                     {
+                        FaceID faceID = new FaceID(manv);
+                        faceID.ShowDialog();
                         if (employee.insertEmployee(manv, hoten, ngaysinh, chucvu, gioitinh, cccd, sdt, diachi, hinhanh) && employee.insertAccount(manv, user, pass))
                         {
                             MessageBox.Show("Đã thêm nhân viên thành công", "Thêm nhân viên", MessageBoxButtons.OK, MessageBoxIcon.Information);

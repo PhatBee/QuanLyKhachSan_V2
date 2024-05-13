@@ -197,7 +197,7 @@ namespace QuanLyKhachSan
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
 
 
@@ -231,8 +231,10 @@ namespace QuanLyKhachSan
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }*/
+            //LoginFaceID faceID = new LoginFaceID();
+            OpenChildForm(new LoginFaceID());
+
         }
 
         private void picCheckOut_Click(object sender, EventArgs e)
@@ -278,7 +280,7 @@ namespace QuanLyKhachSan
 
         public void tinhLuongNhanVien()
         {
-            DateTime tmp = new DateTime(2024, 05, 11);
+            DateTime tmp = new DateTime(2024, 05, 16);
             DateTime.TryParse(tmp.ToString(), out DateTime ngay);
             SqlCommand cmd = new SqlCommand("SELECT TgVaoLam, TgRaKetThuc FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
             cmd.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
@@ -287,19 +289,33 @@ namespace QuanLyKhachSan
             DataTable dt = new DataTable();
             adpt.Fill(dt);
             
-            DateTime TgBatDau = Convert.ToDateTime(dt.Rows[0]["TgVaoLam"].ToString());
-            DateTime TgKetThuc = Convert.ToDateTime(dt.Rows[0]["TgRaKetThuc"].ToString());
-            TimeSpan timeDifference = TgKetThuc.Subtract(TgBatDau);
-            int hoursDifference = Convert.ToInt32(Math.Round(timeDifference.TotalHours,2));
+            if(dt.Rows.Count > 0 )
+            {
+                int hoursDifference;
+                if (dt.Rows[0]["TgVaoLam"].ToString() == "" || dt.Rows[0]["TgRaKetThuc"].ToString() == "")
+                {
+                    hoursDifference = 0;
+                }                        
+                else
+                {
+                    DateTime TgBatDau = Convert.ToDateTime(dt.Rows[0]["TgVaoLam"].ToString());
+                    DateTime TgKetThuc = Convert.ToDateTime(dt.Rows[0]["TgRaKetThuc"].ToString());
+                    TimeSpan timeDifference = TgKetThuc.Subtract(TgBatDau);
+                    hoursDifference = Convert.ToInt32(Math.Round(timeDifference.TotalHours, 2));
+                }    
+                
 
-            SqlCommand command = new SqlCommand("UPDATE PhanCong Set TongSoGioLam = @tsgl Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
-            command.Parameters.Add("@tsgl", SqlDbType.Int).Value =hoursDifference;
-            command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
-            command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
-            mydb.openConection();
-            command.ExecuteNonQuery();
+                SqlCommand command = new SqlCommand("UPDATE PhanCong Set TongSoGioLam = @tsgl Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+                command.Parameters.Add("@tsgl", SqlDbType.Int).Value = hoursDifference;
+                command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+                command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                mydb.openConection();
+                command.ExecuteNonQuery();
 
-            mydb.closeConection();
+                mydb.closeConection();
+            } 
+            
+           
             //MessageBox.Show(hoursDifference.ToString());
 
 

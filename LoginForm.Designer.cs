@@ -92,11 +92,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Aptos", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label2.Location = new System.Drawing.Point(402, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 41);
+            this.label2.Size = new System.Drawing.Size(219, 37);
             this.label2.TabIndex = 2;
             this.label2.Text = "ĐĂNG NHẬP";
             // 
@@ -164,10 +164,10 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Aptos Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.Location = new System.Drawing.Point(247, 315);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(188, 19);
+            this.linkLabel1.Size = new System.Drawing.Size(210, 18);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Chưa có Username? Tạo ngay";
@@ -175,10 +175,10 @@
             // llbQuenMatKhau
             // 
             this.llbQuenMatKhau.AutoSize = true;
-            this.llbQuenMatKhau.Font = new System.Drawing.Font("Aptos Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llbQuenMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llbQuenMatKhau.Location = new System.Drawing.Point(247, 395);
             this.llbQuenMatKhau.Name = "llbQuenMatKhau";
-            this.llbQuenMatKhau.Size = new System.Drawing.Size(109, 19);
+            this.llbQuenMatKhau.Size = new System.Drawing.Size(117, 18);
             this.llbQuenMatKhau.TabIndex = 6;
             this.llbQuenMatKhau.TabStop = true;
             this.llbQuenMatKhau.Text = "Quên mật khẩu?";
@@ -210,7 +210,7 @@
             this.rdoLaoCong.AutoSize = true;
             this.rdoLaoCong.Location = new System.Drawing.Point(303, 10);
             this.rdoLaoCong.Name = "rdoLaoCong";
-            this.rdoLaoCong.Size = new System.Drawing.Size(85, 24);
+            this.rdoLaoCong.Size = new System.Drawing.Size(93, 24);
             this.rdoLaoCong.TabIndex = 2;
             this.rdoLaoCong.TabStop = true;
             this.rdoLaoCong.Text = "Lao công";
@@ -221,7 +221,7 @@
             this.rdoTiepTan.AutoSize = true;
             this.rdoTiepTan.Location = new System.Drawing.Point(219, 10);
             this.rdoTiepTan.Name = "rdoTiepTan";
-            this.rdoTiepTan.Size = new System.Drawing.Size(78, 24);
+            this.rdoTiepTan.Size = new System.Drawing.Size(84, 24);
             this.rdoTiepTan.TabIndex = 1;
             this.rdoTiepTan.TabStop = true;
             this.rdoTiepTan.Text = "Tiếp tân";
@@ -232,7 +232,7 @@
             this.rdoQuanLy.AutoSize = true;
             this.rdoQuanLy.Location = new System.Drawing.Point(137, 10);
             this.rdoQuanLy.Name = "rdoQuanLy";
-            this.rdoQuanLy.Size = new System.Drawing.Size(76, 24);
+            this.rdoQuanLy.Size = new System.Drawing.Size(80, 24);
             this.rdoQuanLy.TabIndex = 0;
             this.rdoQuanLy.TabStop = true;
             this.rdoQuanLy.Text = "Quản lý";
@@ -241,10 +241,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Aptos Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(627, 395);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(135, 23);
+            this.checkBox1.Size = new System.Drawing.Size(141, 22);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "Hiển thị mật khẩu";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 692);
             this.Controls.Add(this.checkBox1);
@@ -265,7 +265,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("Aptos Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";

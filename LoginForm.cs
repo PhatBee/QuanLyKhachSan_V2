@@ -111,5 +111,7 @@ namespace QuanLyKhachSan
             else
                 tbxPass.UseSystemPasswordChar = false;
         }
+
+       
     }
 }
