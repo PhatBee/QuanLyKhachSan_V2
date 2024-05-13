@@ -225,7 +225,7 @@ namespace QuanLyKhachSan
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
 
 
@@ -261,8 +261,10 @@ namespace QuanLyKhachSan
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }*/
+            //LoginFaceID faceID = new LoginFaceID();
+            OpenChildForm(new LoginFaceID());
+
         }
 
         private void picCheckOut_Click(object sender, EventArgs e)
