@@ -93,6 +93,13 @@
   <ItemGroup>
     <Compile Include="ApiRequest.cs" />
     <Compile Include="Bank.cs" />
+    <Compile Include="BAOCAO.cs" />
+    <Compile Include="BaoCaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoForm.Designer.cs">
+      <DependentUpon>BaoCaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietKhachHangForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +211,9 @@
     <Compile Include="UserControlRoom.Designer.cs">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaoCaoForm.resx">
+      <DependentUpon>BaoCaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChiTietKhachHangForm.resx">
       <DependentUpon>ChiTietKhachHangForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -60,7 +60,7 @@ namespace QuanLyKhachSan
                         MainForm frm = new MainForm();
                         frm.ShowDialog();
                     }
-                    else if (rdoQuanLy.Checked && table.Rows[0]["MaCV"].ToString() == "CV003")
+                    else if (rdoLaoCong.Checked && table.Rows[0]["MaCV"].ToString() == "CV003")
                     {
                         this.Hide();
                         MainForm frm = new MainForm();
