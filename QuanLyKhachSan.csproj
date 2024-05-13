@@ -382,6 +382,14 @@
   <ItemGroup>
     <None Include="Resources\checkin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Haarcascade\FaceRecognition.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Haarcascade\haarcascade_frontalface_alt.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
