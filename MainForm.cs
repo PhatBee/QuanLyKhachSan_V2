@@ -54,6 +54,7 @@ namespace QuanLyKhachSan
                 lblHoten.Text = dt.Rows[0][1].ToString();
             }
             hienThiThoiGianLamViec();
+            //tinhLuongNhanVien();
 
         }
 
@@ -271,6 +272,37 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show(ex.Message);
             }
+
+            tinhLuongNhanVien();
+        }
+
+        public void tinhLuongNhanVien()
+        {
+            DateTime tmp = new DateTime(2024, 05, 11);
+            DateTime.TryParse(tmp.ToString(), out DateTime ngay);
+            SqlCommand cmd = new SqlCommand("SELECT TgVaoLam, TgRaKetThuc FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+            cmd.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+            cmd.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            
+            DateTime TgBatDau = Convert.ToDateTime(dt.Rows[0]["TgVaoLam"].ToString());
+            DateTime TgKetThuc = Convert.ToDateTime(dt.Rows[0]["TgRaKetThuc"].ToString());
+            TimeSpan timeDifference = TgKetThuc.Subtract(TgBatDau);
+            int hoursDifference = Convert.ToInt32(Math.Round(timeDifference.TotalHours,2));
+
+            SqlCommand command = new SqlCommand("UPDATE PhanCong Set TongSoGioLam = @tsgl Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);
+            command.Parameters.Add("@tsgl", SqlDbType.Int).Value =hoursDifference;
+            command.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+            command.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+            mydb.openConection();
+            command.ExecuteNonQuery();
+
+            mydb.closeConection();
+            //MessageBox.Show(hoursDifference.ToString());
+
+
         }
     }
 }
