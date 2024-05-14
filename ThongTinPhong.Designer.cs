@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.lblThanhToan = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblTienDV = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.btnThemDV = new System.Windows.Forms.Button();
             this.cbxDV = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnThanhToan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +91,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1174, 232);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tbxSDT
             // 
@@ -256,6 +257,17 @@
             this.panel2.Size = new System.Drawing.Size(1175, 386);
             this.panel2.TabIndex = 2;
             // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.AutoSize = true;
+            this.btnThanhToan.Location = new System.Drawing.Point(903, 337);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(124, 30);
+            this.btnThanhToan.TabIndex = 14;
+            this.btnThanhToan.Text = "Trả phòng";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
             // lblThanhToan
             // 
             this.lblThanhToan.AutoSize = true;
@@ -398,17 +410,6 @@
             this.label10.Size = new System.Drawing.Size(73, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Dịch vụ:";
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.AutoSize = true;
-            this.btnThanhToan.Location = new System.Drawing.Point(903, 337);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(124, 30);
-            this.btnThanhToan.TabIndex = 14;
-            this.btnThanhToan.Text = "Thanh Toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // ThongTinPhong
             // 

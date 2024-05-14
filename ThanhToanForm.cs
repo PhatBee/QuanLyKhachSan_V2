@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,12 +18,16 @@ namespace QuanLyKhachSan
 {
     public partial class ThanhToanForm : Form
     {
-        string _thanhtoan, _sophong;
-        public ThanhToanForm(string thanhtoan, string sophong)
+        string _sophong;
+        int _thanhtoan;
+        DataTable _tbDichVu = new DataTable();
+        DataTable dt = new DataTable();
+
+        public ThanhToanForm(string thanhtoan, string sophong, DataTable tbDichVu)
         {
             InitializeComponent();
-            _thanhtoan = thanhtoan;
             _sophong = sophong;
+            _tbDichVu = tbDichVu;
         }
 
         public Image Base64ToImage(string base64String)
@@ -36,6 +41,12 @@ namespace QuanLyKhachSan
 
         private void ThanhToanForm_Load(object sender, EventArgs e)
         {
+            loadThongTin();
+            loadDichVuThanhToan();
+
+            // Định dạng datagrid
+            dataGridView1.Columns[0].Visible = false;
+
             using (WebClient client = new WebClient())
             {
                 var htmlData = client.DownloadData("https://raw.githubusercontent.com/PhatBee/QR/main/API.json");
@@ -47,6 +58,77 @@ namespace QuanLyKhachSan
                 cbxNganHang.ValueMember = "bin";
                 cbxNganHang.SelectedValue = listBankData.data.FirstOrDefault().bin;
                 cbxLoaiQR.SelectedIndex = 0;
+            }
+        }
+
+        private void loadDichVuThanhToan()
+        {
+            MYDB mydb = new MYDB();
+            SqlCommand cmd3 = new SqlCommand("SELECT MaPhong, TenDV 'Tên Dịch Vụ', DonGia 'Đơn Giá', Count(TenDV) 'Số Lượng', Sum(DonGia) 'Tổng' " +
+                "FROM DichVuPhong INNER JOIN DichVu ON DichVu.MaDV = DichVuPhong.MaDV " +
+                "Where MaPhong = @maphong and MaHD = @mahd " +
+                "GROUP BY TenDV, DonGia, MaPhong", mydb.getConnection);
+            cmd3.Parameters.Add("@maphong", SqlDbType.VarChar).Value = tbxSoPhong.Text;
+            cmd3.Parameters.Add("@mahd", SqlDbType.VarChar).Value = dt.Rows[0]["MaHD"].ToString();
+            DataTable dt3 = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd3);
+            adapter.Fill(dt3);
+            dataGridView1.DataSource = dt3;
+            dataGridView1.AllowUserToAddRows = false;
+
+            TimeSpan kc = datiRa.Value - datiVao.Value;
+            int songay = (int)kc.TotalDays;
+
+            int tongTienDichVu = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Kiểm tra nếu hàng không phải là hàng mới thêm và không phải là hàng header
+                if (!row.IsNewRow)
+                {
+                    tongTienDichVu += Convert.ToInt32(row.Cells[4].Value.ToString());          // Chỉnh lại thứ tự của cột nếu đã ẩn đi MaPhong                                                          
+                }
+            }
+
+            int tienphong = (songay * Convert.ToInt32(tbxGiaPhong.Text));
+            lblTongTienPhong.Text = tienphong.ToString("#,##0");
+
+            int thanhtien = tongTienDichVu + tienphong;
+            _thanhtoan = thanhtien;
+
+            
+
+        }
+
+        private void loadThongTin()
+        {
+            tbxSoPhong.Text = _sophong;
+
+            MYDB mydb = new MYDB();
+
+            SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
+                "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
+                "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
+                "WHERE TinhTrang = 1 and ChiPhi is NULL and HoaDon.MaPhong = @mp", mydb.getConnection);
+            cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            adpt.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                tbxHoaDon.Text = dt.Rows[0]["MaHD"].ToString();
+                tbxGiaPhong.Text = dt.Rows[0]["DonGia"].ToString();
+                datiVao.Value = (DateTime)dt.Rows[0]["NgayDat"];
+                datiRa.Value = (DateTime)dt.Rows[0]["NgayTra"];
+                tbxLoaiPhong.Text = dt.Rows[0]["TenLoaiPhong"].ToString();
+                tbxTenKH.Text = dt.Rows[0]["TenKH"].ToString();
+                tbxCCCD.Text = dt.Rows[0]["CCCD"].ToString();
+                tbxSDT.Text = dt.Rows[0]["SDT"].ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Lỗi, không lấy được thông tin dữ liệu", "Trả phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -66,7 +148,7 @@ namespace QuanLyKhachSan
             else if (cbxNganHang.SelectedValue.ToString() == "970436")
             {
                 apiRequest.acqId = Convert.ToInt32(cbxNganHang.SelectedValue.ToString());
-                apiRequest.accountNo = long.Parse("366378775");
+                apiRequest.accountNo = long.Parse("1015708276");
                 apiRequest.accountName = "ONG VINH PHAT";
                 apiRequest.amount = Convert.ToInt32(_thanhtoan.ToString());
                 apiRequest.format = "text";
@@ -97,6 +179,20 @@ namespace QuanLyKhachSan
 
             lblSoTien.Text = Convert.ToInt32(_thanhtoan).ToString("#,##0");
             lblNoiDung.Text = "Thanh toán tiền phòng: " + _sophong;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Đơn Giá" || dataGridView1.Columns[e.ColumnIndex].Name == "Tổng")
+            {
+                // Kiểm tra xem giá trị của ô hiện tại có phải là số nguyên không
+                if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal value))
+                {
+                    // Định dạng lại giá trị thành "#,##0"
+                    e.Value = value.ToString("#,##0");
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }
