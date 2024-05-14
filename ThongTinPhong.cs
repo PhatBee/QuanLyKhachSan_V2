@@ -30,7 +30,7 @@ namespace QuanLyKhachSan
             SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
                 "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                 "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
-                "WHERE TinhTrang = 1 and ChiPhi is NULL and HoaDon.MaPhong = @mp", mydb.getConnection);
+                "WHERE TinhTrang = 1 and HoaDon.MaPhong = @mp", mydb.getConnection);
             cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             adpt.Fill(dt);
