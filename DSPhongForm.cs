@@ -20,7 +20,7 @@ namespace QuanLyKhachSan
             LoadPhong2();
         }
 
-        private void LoadPhong2()
+        public void LoadPhong2()
         {
             MYDB mydb = new MYDB();
             SqlCommand cmd = new SqlCommand("SELECT MaPhong, TenLoaiPhong, TinhTrang FROM Phong " +
@@ -39,7 +39,7 @@ namespace QuanLyKhachSan
                 
 
 
-                UserControlRoom usroom = new UserControlRoom();
+                UserControlRoom usroom = new UserControlRoom(sophong,loaiphong,tinhtrang);
                 usroom.fillData(sophong, loaiphong, tinhtrang);
 
                 flpPhong.Controls.Add(usroom);
@@ -60,7 +60,7 @@ namespace QuanLyKhachSan
             }*/
         }
 
-        private void DSPhongForm_Load(object sender, EventArgs e)
+        public void DSPhongForm_Load(object sender, EventArgs e)
         {
 
         }

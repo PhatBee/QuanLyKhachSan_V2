@@ -66,7 +66,7 @@ namespace QuanLyKhachSan
             else if (cbxNganHang.SelectedValue.ToString() == "970436")
             {
                 apiRequest.acqId = Convert.ToInt32(cbxNganHang.SelectedValue.ToString());
-                apiRequest.accountNo = long.Parse("366378775");
+                apiRequest.accountNo = long.Parse("1015708276");
                 apiRequest.accountName = "ONG VINH PHAT";
                 apiRequest.amount = Convert.ToInt32(_thanhtoan.ToString());
                 apiRequest.format = "text";

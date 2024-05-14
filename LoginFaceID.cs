@@ -67,7 +67,7 @@ namespace QuanLyKhachSan
                         // Đóng form hiện tại
                         this.Dispose();
                     }*/
-                    if(checkNhanVien(maNV) == true)
+                    if(checkNhanVien(maNV) == true && maNV == Globals.GlobalUserID)
                     {
                         faceRec.closeCamera();
                         timer.Stop();

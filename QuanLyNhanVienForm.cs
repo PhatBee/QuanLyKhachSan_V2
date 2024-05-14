@@ -32,7 +32,7 @@ namespace QuanLyKhachSan
         {
             MYDB mydb = new MYDB();
 
-            SqlCommand command = new SqlCommand("SELECT MaNV, TenNV, NgaySinh, Phai, CCCD, SoDT, DiaChi, HinhAnh, TenCV FROM NhanVien " +
+            SqlCommand command = new SqlCommand("SELECT MaNV 'Mã NV', TenNV 'Tên', NgaySinh 'Ngày Sinh', Phai 'Phái', CCCD, SoDT 'Số ĐT', DiaChi 'DiaChi', HinhAnh 'Hình Ảnh', TenCV 'Chức Vụ' FROM NhanVien " +
                 "INNER JOIN ChucVu ON NhanVien.MaCV = ChucVu.MaCV");
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
@@ -365,7 +365,7 @@ namespace QuanLyKhachSan
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("SELECT MaNV, TenNV, NgaySinh, Phai, CCCD, SoDT, DiaChi, HinhAnh, TenCV FROM NhanVien " +
+            SqlCommand command = new SqlCommand("SELECT MaNV 'Mã NV', TenNV 'Tên', NgaySinh 'Ngày Sinh', Phai 'Phái', CCCD, SoDT 'Số ĐT', DiaChi 'DiaChi', HinhAnh 'Hình Ảnh', TenCV 'Chức Vụ' FROM NhanVien " +
                 "INNER JOIN ChucVu ON NhanVien.MaCV = ChucVu.MaCV");
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;

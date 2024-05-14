@@ -118,15 +118,15 @@ namespace QuanLyKhachSan
                 picCheckOut.Hide();
                 lblCheckIn.Hide();
                 lblCheckOut.Hide();
-                
+
             }
             else
             {
 
                 // label4.Text = "Ca làm việc: " + dt.Rows[0][0].ToString();
                 label4.Text = tg;
-            }    
-            
+            }
+
         }
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -361,6 +361,11 @@ namespace QuanLyKhachSan
         private void picBaoCao_Click(object sender, EventArgs e)
         {
             OpenChildForm(new BaoCaoForm());
+
+        }
+
+        private void pnBaoCao_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

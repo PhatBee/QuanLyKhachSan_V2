@@ -592,7 +592,7 @@ namespace QuanLyKhachSan
             int[,] A = new int[soNhanVien, soNhanVien];
             A[0, 0] = 3;
             A[1, 0] = 7;
-            A[2, 0] = 7;
+            A[2, 0] = 11;
 
 
             if (QuanLyHopLe(date))

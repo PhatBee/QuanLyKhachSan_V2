@@ -77,7 +77,7 @@
             // 
             // btnTra
             // 
-            this.btnTra.Location = new System.Drawing.Point(82, 117);
+            this.btnTra.Location = new System.Drawing.Point(84, 117);
             this.btnTra.Name = "btnTra";
             this.btnTra.Size = new System.Drawing.Size(52, 23);
             this.btnTra.TabIndex = 5;
