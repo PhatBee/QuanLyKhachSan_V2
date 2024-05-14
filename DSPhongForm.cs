@@ -62,7 +62,24 @@ namespace QuanLyKhachSan
 
         public void DSPhongForm_Load(object sender, EventArgs e)
         {
+            MYDB mydb = new MYDB();
+            string manv = Globals.GlobalUserID;
+            SqlCommand cmd = new SqlCommand("SELECT * From NhanVien " +
+                "WHERE MaCV = @macv AND MaNV = @manv", mydb.getConnection);
+            cmd.Parameters.Add("@macv", SqlDbType.VarChar).Value = "CV001";
+            cmd.Parameters.Add("@manv", SqlDbType.Variant).Value = manv;
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
 
+            if (dt.Rows.Count > 0)
+            {
+                btnQuanLyPhong.Enabled = true;
+            }
+            else
+            {
+                btnQuanLyPhong.Enabled= false;
+            }
         }
 
         void LoadPhong()

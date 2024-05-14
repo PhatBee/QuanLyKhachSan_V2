@@ -23,7 +23,7 @@ namespace QuanLyKhachSan
         {
             MYDB mydb = new MYDB();
             Phong phong = new Phong(); 
-            SqlCommand command = new SqlCommand("SELECT MaPhong, TenLoaiPhong, TinhTrang FROM Phong " +
+            SqlCommand command = new SqlCommand("SELECT MaPhong as 'Mã Phòng', TenLoaiPhong as 'Loại Phòng', TinhTrang as 'Tình trạng' FROM Phong " +
                 "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong", mydb.getConnection);
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);

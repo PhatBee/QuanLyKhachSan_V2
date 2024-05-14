@@ -23,7 +23,7 @@ namespace QuanLyKhachSan
         private void ChiTietKhachHangForm_Load(object sender, EventArgs e)
         {
             MYDB mydb = new MYDB();
-            SqlCommand cmd = new SqlCommand("SELECT MaHD, MaPhong, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra FROM HoaDon",mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("SELECT MaHD as 'Mã Hoá Đơn', MaPhong as 'Mã Phòng', TenKH as 'Tên Khách Hàng', CCCD , SDT, GhiChu as 'Ghi Chú', NgayDat as 'Ngày Đặt', NgayTra as 'Ngày Trả' FROM HoaDon",mydb.getConnection);
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
@@ -108,7 +108,7 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại", "Đặt phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (!Regex.IsMatch(tbxTen.Text, @"^[a-zA-Z\s]+$"))
+            else if (!Regex.IsMatch(tbxTen.Text, @"[\p{L}]+$"))
             {
                 MessageBox.Show("Tên khách hàng không hợp lệ, tên chỉ bao gồm kí tự và khoảng trắng", "Đặt phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

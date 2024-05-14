@@ -53,11 +53,34 @@ namespace QuanLyKhachSan
                 lblChucVu.Text = dt.Rows[0][2].ToString();
                 lblHoten.Text = dt.Rows[0][1].ToString();
             }
+            
+            hienThiChucNang(lblChucVu.Text);
+
             hienThiCaHienTai();
 
             hienThiThoiGianLamViec();
             // tinhLuongNhanVien();
 
+        }
+
+        private void hienThiChucNang(string text)
+        {
+            if (text == "Tiếp Tân")
+            {
+                pnPhanCong.Visible = false;
+                pnThongKe.Visible = false;
+                pnBaoCao.Visible = false;
+                pnQLNV.Visible = false;
+            }    
+            else if (text == "Lao Công")
+            {
+                pnPhanCong.Visible = false;
+                pnThongKe.Visible = false;
+                pnBaoCao.Visible = false;
+                pnQLNV.Visible = false;
+                pnDSChiTiet.Visible = false;
+                pnDSPhong.Visible = false ;
+            }    
         }
 
         private void hienThiCaHienTai()

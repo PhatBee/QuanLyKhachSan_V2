@@ -74,6 +74,10 @@ namespace QuanLyKhachSan
                     this.Show();
 
                 }
+                else
+                {
+                    MessageBox.Show("Tài khoản chưa có trên hệ thống", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 
             }    
 
