@@ -16,7 +16,7 @@ namespace QuanLyKhachSan
         string soPhong, loaiPhong;
         bool tinhTrang;
         MYDB mydb = new MYDB();
-        public UserControlRoom(string sophong,string loaiphong,bool tinhtrang)
+        public UserControlRoom(string sophong, string loaiphong, bool tinhtrang)
         {
             InitializeComponent();
             this.soPhong = sophong;
@@ -26,7 +26,7 @@ namespace QuanLyKhachSan
 
         private void UserControlRoom_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void fillData(string sophong, string loaiphong, bool tinhtrang)
@@ -42,24 +42,24 @@ namespace QuanLyKhachSan
             else
             {
                 lblTinhTrang.Text = "Còn trống";
-                lblTinhTrang.ForeColor= Color.Green;
+                lblTinhTrang.ForeColor = Color.Green;
             }
         }
 
         private void UserControlRoom_Click(object sender, EventArgs e)
         {
-            if(tinhTrang == true)
+            if (tinhTrang == true)
             {
                 string maphong = lblSoPhong.Text;
                 ThongTinPhong frm = new ThongTinPhong(maphong);
                 frm.ShowDialog();
-            }    
-            
+            }
+
         }
 
         private void btnDat_Click(object sender, EventArgs e)
         {
-            if(this.tinhTrang == false)
+            if (this.tinhTrang == false)
             {
                 string maphong = lblSoPhong.Text.ToString();
                 DatPhongForm frm = new DatPhongForm(maphong);
@@ -68,33 +68,26 @@ namespace QuanLyKhachSan
             else
             {
                 MessageBox.Show("Phòng đã có người thuê!", "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }           
+            }
         }
 
         private void btnTra_Click(object sender, EventArgs e)
         {
-            if(tinhTrang == true)
+            if (tinhTrang == true)
             {
                 DialogResult result = MessageBox.Show("Xác nhận trả phòng", "Hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand command = new SqlCommand("Update Phong SET TinhTrang = 0 Where MaPhong = '" + soPhong + "'", mydb.getConnection);
-                    mydb.openConection();
-                    if (command.ExecuteNonQuery() == 1)
-                    {
-                        this.tinhTrang = false;
-                        MessageBox.Show("Trả phòng thành công!", "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillData(soPhong, loaiPhong, false);
-                        mydb.closeConection();
-                    }
-                    else
-                    {
-                        MessageBox.Show("ERROR", "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    ThanhToanForm thanhToanForm = new ThanhToanForm(soPhong);
+                    thanhToanForm.ShowDialog();
                 }
-            }                
-            
-              
+                else
+                {
+                    MessageBox.Show("ERROR", "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
+
     }
 }

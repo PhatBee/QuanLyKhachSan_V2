@@ -261,16 +261,7 @@
             this.panel2.Size = new System.Drawing.Size(1175, 386);
             this.panel2.TabIndex = 2;
             // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.AutoSize = true;
-            this.btnThanhToan.Location = new System.Drawing.Point(903, 337);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(124, 30);
-            this.btnThanhToan.TabIndex = 14;
-            this.btnThanhToan.Text = "Trả phòng";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            
             // 
             // btnThanhToan
             // 

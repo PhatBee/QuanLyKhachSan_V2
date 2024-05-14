@@ -22,12 +22,12 @@ namespace QuanLyKhachSan
         int _thanhtoan;
         DataTable _tbDichVu = new DataTable();
         DataTable dt = new DataTable();
-
-        public ThanhToanForm(string thanhtoan, string sophong, DataTable tbDichVu)
+        MYDB mydb = new MYDB();
+        public ThanhToanForm(string sophong)
         {
             InitializeComponent();
             _sophong = sophong;
-            _tbDichVu = tbDichVu;
+           
         }
 
         public Image Base64ToImage(string base64String)
@@ -101,35 +101,42 @@ namespace QuanLyKhachSan
 
         private void loadThongTin()
         {
-            tbxSoPhong.Text = _sophong;
-
-            MYDB mydb = new MYDB();
-
-            SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
-                "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
-                "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
-                "WHERE TinhTrang = 1 and ChiPhi is NULL and HoaDon.MaPhong = @mp", mydb.getConnection);
-            cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
-            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-            adpt.Fill(dt);
-
-            if (dt.Rows.Count > 0)
+            try
             {
-                tbxHoaDon.Text = dt.Rows[0]["MaHD"].ToString();
-                tbxGiaPhong.Text = dt.Rows[0]["DonGia"].ToString();
-                datiVao.Value = (DateTime)dt.Rows[0]["NgayDat"];
-                datiRa.Value = (DateTime)dt.Rows[0]["NgayTra"];
-                tbxLoaiPhong.Text = dt.Rows[0]["TenLoaiPhong"].ToString();
-                tbxTenKH.Text = dt.Rows[0]["TenKH"].ToString();
-                tbxCCCD.Text = dt.Rows[0]["CCCD"].ToString();
-                tbxSDT.Text = dt.Rows[0]["SDT"].ToString();
+                tbxSoPhong.Text = _sophong;
 
-            }
-            else
+                MYDB mydb = new MYDB();
+
+                SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
+                    "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
+                    "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
+                    "WHERE TinhTrang = 1 and ChiPhi is NULL and HoaDon.MaPhong = @mp", mydb.getConnection);
+                cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+                adpt.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    tbxHoaDon.Text = dt.Rows[0]["MaHD"].ToString();
+                    tbxGiaPhong.Text = dt.Rows[0]["DonGia"].ToString();
+                    datiVao.Value = (DateTime)dt.Rows[0]["NgayDat"];
+                    datiRa.Value = (DateTime)dt.Rows[0]["NgayTra"];
+                    tbxLoaiPhong.Text = dt.Rows[0]["TenLoaiPhong"].ToString();
+                    tbxTenKH.Text = dt.Rows[0]["TenKH"].ToString();
+                    tbxCCCD.Text = dt.Rows[0]["CCCD"].ToString();
+                    tbxSDT.Text = dt.Rows[0]["SDT"].ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi, không lấy được thông tin dữ liệu", "Trả phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Lỗi, không lấy được thông tin dữ liệu", "Trả phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                MessageBox.Show(ex.Message,"Hệ thống",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
         }
 
         private void btnTaoQR_Click(object sender, EventArgs e)
@@ -193,6 +200,31 @@ namespace QuanLyKhachSan
                     e.FormattingApplied = true;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("UPDATE Phong SET TinhTrang = 0 WHERE MaPhong = '" + _sophong + "'", mydb.getConnection);
+                SqlCommand command1 = new SqlCommand("UPDATE HOADON SET ChiPhi = '"+_thanhtoan+"'  WHERE MaHD = '" + tbxHoaDon.Text + "'",mydb.getConnection);
+                mydb.openConection();
+                if (command.ExecuteNonQuery() == 1 && command1.ExecuteNonQuery()==1)
+                {
+                    MessageBox.Show("Xác nhận trả phòng thành công","Hệ thống", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("ERROR","Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Hệ thống",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
         }
     }
 }

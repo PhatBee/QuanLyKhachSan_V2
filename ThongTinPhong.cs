@@ -188,7 +188,7 @@ namespace QuanLyKhachSan
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            ThanhToanForm frm = new ThanhToanForm(tongtien.ToString(), tbxSoPhong.Text, tbdichvu);
+            ThanhToanForm frm = new ThanhToanForm(tbxSoPhong.Text);
             frm.ShowDialog();
         }
 
