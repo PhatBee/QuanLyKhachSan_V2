@@ -22,6 +22,8 @@ namespace QuanLyKhachSan
         DataTable dt = new DataTable();
         MYDB mydb = new MYDB();
 
+        DataTable tbdichvu = new DataTable(); 
+
         int tongtien;
         public void hienThiThongTinPhong()
         {
@@ -79,6 +81,7 @@ namespace QuanLyKhachSan
             dataGridView1.DataSource = dt3;
             dataGridView1.AllowUserToAddRows = false;
 
+            tbdichvu = dt3;
 
             int tongTienDichVu = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -185,8 +188,13 @@ namespace QuanLyKhachSan
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            ThanhToanForm frm = new ThanhToanForm(tongtien.ToString(), tbxSoPhong.Text);
+            ThanhToanForm frm = new ThanhToanForm(tongtien.ToString(), tbxSoPhong.Text, tbdichvu);
             frm.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
