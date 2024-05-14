@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="QuanLyKhachSanDataSetRptBaoCaoHoaDon" targetNamespace="http://tempuri.org/QuanLyKhachSanDataSetRptBaoCaoHoaDon.xsd" xmlns:mstns="http://tempuri.org/QuanLyKhachSanDataSetRptBaoCaoHoaDon.xsd" xmlns="http://tempuri.org/QuanLyKhachSanDataSetRptBaoCaoHoaDon.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSetRptHoaDonKhachSan" targetNamespace="http://tempuri.org/DataSetRptHoaDonKhachSan.xsd" xmlns:mstns="http://tempuri.org/DataSetRptHoaDonKhachSan.xsd" xmlns="http://tempuri.org/DataSetRptHoaDonKhachSan.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="QuanLyKhachSanConnectionString (Settings)" DbObjectName="QuanLyKhachSan.dbo.rptBaoCaoHoaDonKhachSan" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, MaPhong, MaLoaiPhong, TenLoaiPhong, DonGiaPhong, MaDV, TenDV, DonGiaDichVu, SoLuong, TongTien FROM dbo.rptBaoCaoHoaDonKhachSan</CommandText>
+                    <CommandText>SELECT MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, MaPhong, MaLoaiPhong, TenLoaiPhong, DonGiaPhong, MaDV, TenDV, DonGiaDichVu, NgayThanhToan, TenNV, SoLuong, TongTien FROM dbo.rptBaoCaoHoaDonKhachSan</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -34,6 +34,8 @@
               <Mapping SourceColumn="MaDV" DataSetColumn="MaDV" />
               <Mapping SourceColumn="TenDV" DataSetColumn="TenDV" />
               <Mapping SourceColumn="DonGiaDichVu" DataSetColumn="DonGiaDichVu" />
+              <Mapping SourceColumn="NgayThanhToan" DataSetColumn="NgayThanhToan" />
+              <Mapping SourceColumn="TenNV" DataSetColumn="TenNV" />
               <Mapping SourceColumn="SoLuong" DataSetColumn="SoLuong" />
               <Mapping SourceColumn="TongTien" DataSetColumn="TongTien" />
             </Mappings>
@@ -44,7 +46,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="QuanLyKhachSanDataSetRptBaoCaoHoaDon" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="QuanLyKhachSanDataSetRptBaoCaoHoaDon" msprop:Generator_DataSetName="QuanLyKhachSanDataSetRptBaoCaoHoaDon">
+  <xs:element name="DataSetRptHoaDonKhachSan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DataSetRptHoaDonKhachSan" msprop:Generator_DataSetName="DataSetRptHoaDonKhachSan">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="rptBaoCaoHoaDonKhachSan" msprop:Generator_RowEvHandlerName="rptBaoCaoHoaDonKhachSanRowChangeEventHandler" msprop:Generator_RowDeletedName="rptBaoCaoHoaDonKhachSanRowDeleted" msprop:Generator_RowDeletingName="rptBaoCaoHoaDonKhachSanRowDeleting" msprop:Generator_RowEvArgName="rptBaoCaoHoaDonKhachSanRowChangeEvent" msprop:Generator_TablePropName="rptBaoCaoHoaDonKhachSan" msprop:Generator_RowChangedName="rptBaoCaoHoaDonKhachSanRowChanged" msprop:Generator_RowChangingName="rptBaoCaoHoaDonKhachSanRowChanging" msprop:Generator_TableClassName="rptBaoCaoHoaDonKhachSanDataTable" msprop:Generator_RowClassName="rptBaoCaoHoaDonKhachSanRow" msprop:Generator_TableVarName="tablerptBaoCaoHoaDonKhachSan" msprop:Generator_UserTableName="rptBaoCaoHoaDonKhachSan">
@@ -125,6 +127,14 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="DonGiaDichVu" msprop:Generator_ColumnPropNameInRow="DonGiaDichVu" msprop:Generator_ColumnPropNameInTable="DonGiaDichVuColumn" msprop:Generator_ColumnVarNameInTable="columnDonGiaDichVu" msprop:Generator_UserColumnName="DonGiaDichVu" type="xs:int" minOccurs="0" />
+              <xs:element name="NgayThanhToan" msprop:Generator_ColumnPropNameInRow="NgayThanhToan" msprop:Generator_ColumnPropNameInTable="NgayThanhToanColumn" msprop:Generator_ColumnVarNameInTable="columnNgayThanhToan" msprop:Generator_UserColumnName="NgayThanhToan" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TenNV" msprop:Generator_ColumnPropNameInRow="TenNV" msprop:Generator_ColumnPropNameInTable="TenNVColumn" msprop:Generator_ColumnVarNameInTable="columnTenNV" msprop:Generator_UserColumnName="TenNV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="SoLuong" msprop:Generator_ColumnPropNameInRow="SoLuong" msprop:Generator_ColumnPropNameInTable="SoLuongColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuong" msprop:Generator_UserColumnName="SoLuong" type="xs:int" minOccurs="0" />
               <xs:element name="TongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_UserColumnName="TongTien" type="xs:int" minOccurs="0" />
             </xs:sequence>

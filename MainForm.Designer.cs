@@ -90,6 +90,7 @@
             this.lblThongKe.Size = new System.Drawing.Size(75, 20);
             this.lblThongKe.TabIndex = 10;
             this.lblThongKe.Text = "Thống kê";
+            this.lblThongKe.Click += new System.EventHandler(this.lblThongKe_Click);
             // 
             // lblQuanLyNV
             // 
@@ -336,6 +337,7 @@
             this.pnThongKe.Name = "pnThongKe";
             this.pnThongKe.Size = new System.Drawing.Size(227, 59);
             this.pnThongKe.TabIndex = 4;
+            this.pnThongKe.Click += new System.EventHandler(this.pnThongKe_Click);
             // 
             // picThongKe
             // 
@@ -347,6 +349,7 @@
             this.picThongKe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picThongKe.TabIndex = 2;
             this.picThongKe.TabStop = false;
+            this.picThongKe.Click += new System.EventHandler(this.picThongKe_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -405,7 +408,6 @@
             this.pnBaoCao.Size = new System.Drawing.Size(227, 59);
             this.pnBaoCao.TabIndex = 6;
             this.pnBaoCao.Click += new System.EventHandler(this.pnBaoCao_Click);
-            this.pnBaoCao.Paint += new System.Windows.Forms.PaintEventHandler(this.pnBaoCao_Paint);
             // 
             // picBaoCao
             // 

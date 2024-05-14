@@ -232,14 +232,15 @@ namespace QuanLyKhachSan
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia as DonGiaPhong, DichVuPhong.MaDV, TenDV, DichVu.DonGia as DonGiaDichVu, Count(TenDV) as SoLuong, Sum(DichVu.DonGia) as TongTien " +
+            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHD, TenKH, HoaDon.CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia as DonGiaPhong, DichVuPhong.MaDV, TenDV, DichVu.DonGia as DonGiaDichVu, NgayThanhToan, TenNV, Count(TenDV) as SoLuong, Sum(DichVu.DonGia) as TongTien " +
                 "FROM HoaDon " +
                 "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                 "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
                 "INNER JOIN DichVuPhong ON HoaDon.MaHD = DichVuPhong.MaHD AND HoaDon.MaPhong = DichVuPhong.MaPhong " +
                 "INNER JOIN DichVu ON DichVuPhong.MaDV = DichVu.MaDV " +
                 "WHERE HoaDon.MaHD = @mahd " +
-                "GROUP BY HoaDon.MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia, DichVuPhong.MaDV, TenDV, DichVu.DonGia", mydb.getConnection);
+                "INNER JOIN NhanVien ON HoaDon.MaNV = NhanVien.MaNV " +
+                "GROUP BY HoaDon.MaHD, TenKH, HoaDon.CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia, DichVuPhong.MaDV, TenDV, DichVu.DonGia, NgayThanhToan, TenNV", mydb.getConnection);
             cmd.Parameters.Add("@mahd", SqlDbType.VarChar).Value = tbxHoaDon.Text;
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             DataTable result = new DataTable();
