@@ -66,7 +66,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbxHoaDon = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnXacNhan = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.lblTongTienPhong = new System.Windows.Forms.Label();
             this.btnInHoaDon = new System.Windows.Forms.Button();
@@ -437,16 +437,16 @@
             this.dataGridView1.TabIndex = 40;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // button1
+            // btnXacNhan
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(516, 925);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 30);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Xác nhận";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnXacNhan.AutoSize = true;
+            this.btnXacNhan.Location = new System.Drawing.Point(516, 925);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(87, 30);
+            this.btnXacNhan.TabIndex = 41;
+            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.button1_Click);
             // 
             // label18
             // 
@@ -487,7 +487,7 @@
             this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.lblTongTienPhong);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbxHoaDon);
             this.Controls.Add(this.label17);
@@ -568,7 +568,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbxHoaDon;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblTongTienPhong;
         private System.Windows.Forms.Button btnInHoaDon;

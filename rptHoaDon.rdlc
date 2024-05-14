@@ -59,7 +59,7 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -67,7 +67,7 @@
         <Top>1.69016cm</Top>
         <Left>4.91808cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.25229cm</Width>
+        <Width>4.64312cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -306,8 +306,8 @@
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>6.39661cm</Top>
         <Left>0.63182cm</Left>
-        <Height>0.73229cm</Height>
-        <Width>5.43688cm</Width>
+        <Height>1.52604cm</Height>
+        <Width>6.17771cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -403,16 +403,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.14583cm</Width>
+              <Width>4.39145cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.65887cm</Width>
+              <Width>3.36084cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.14042cm</Width>
+              <Width>3.77cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -421,7 +421,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox12">
+                    <Textbox Name="Textbox19">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -435,10 +435,12 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <rd:DefaultName>Textbox19</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -455,7 +457,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox14">
+                    <Textbox Name="Textbox21">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -469,10 +471,12 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <rd:DefaultName>Textbox21</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -489,7 +493,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox16">
+                    <Textbox Name="Textbox23">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -503,10 +507,12 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -523,24 +529,26 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox18">
+                    <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tổng tiền</Value>
+                              <Value>Tổng</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>13pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox18</rd:DefaultName>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -714,11 +722,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSetRptBaoCaoHoaDonKhachSan</DataSetName>
-        <Top>8.43703cm</Top>
+        <DataSetName>DataSetRptHoaDonKhachSan</DataSetName>
+        <Top>8.93974cm</Top>
         <Left>2.41808cm</Left>
         <Height>1.2cm</Height>
-        <Width>15.44511cm</Width>
+        <Width>14.02229cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -752,10 +760,96 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>12.03223cm</Top>
-        <Left>13.03485cm</Left>
+        <Left>13.72278cm</Left>
         <Height>0.73229cm</Height>
         <Width>5.43688cm</Width>
         <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox13">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ngày: </Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>13pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!NgayThanhToan.Value</Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>13pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>1.69016cm</Top>
+        <Left>10.52725cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.64312cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox15">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Nhân Viên Thanh Toán: </Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!TenNV.Value</Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>16.50369cm</Top>
+        <Left>6.07632cm</Left>
+        <Height>0.73229cm</Height>
+        <Width>13.08334cm</Width>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -790,11 +884,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>7522aad2-442b-4603-be66-e24caf4c5cb8</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DataSetRptHoaDonKhachSan">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>635c5210-4923-460f-9dbd-ddf7c3c87f38</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetRptBaoCaoHoaDonKhachSan">
+    <DataSet Name="DataSetRptHoaDonKhachSan">
       <Query>
-        <DataSourceName>QuanLyKhachSanDataSetRptBaoCaoHoaDon</DataSourceName>
+        <DataSourceName>DataSetRptHoaDonKhachSan</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -858,6 +959,14 @@
           <DataField>DonGiaDichVu</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="NgayThanhToan">
+          <DataField>NgayThanhToan</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TenNV">
+          <DataField>TenNV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="SoLuong">
           <DataField>SoLuong</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -868,8 +977,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>QuanLyKhachSanDataSetRptBaoCaoHoaDon</rd:DataSetName>
-        <rd:SchemaPath>D:\Nam_2\HK2\Programming_Windows\Git_QLKS\QLKS_v3_panel\QuanLyKhachSanDataSetRptBaoCaoHoaDon.xsd</rd:SchemaPath>
+        <rd:DataSetName>DataSetRptHoaDonKhachSan</rd:DataSetName>
+        <rd:SchemaPath>D:\Nam_2\HK2\Programming_Windows\Git_QLKS\QLKS_v3_panel\DataSetRptHoaDonKhachSan.xsd</rd:SchemaPath>
         <rd:TableName>rptBaoCaoHoaDonKhachSan</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

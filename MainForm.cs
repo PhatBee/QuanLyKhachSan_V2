@@ -364,9 +364,19 @@ namespace QuanLyKhachSan
 
         }
 
-        private void pnBaoCao_Paint(object sender, PaintEventArgs e)
+        private void pnThongKe_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new ThongKeChiTieuForm());
+        }
 
+        private void lblThongKe_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThongKeChiTieuForm());
+        }
+
+        private void picThongKe_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThongKeChiTieuForm());
         }
     }
 }
