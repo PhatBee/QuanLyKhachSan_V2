@@ -26,7 +26,7 @@ namespace QuanLyKhachSan
 
         public void ShowReport(DataTable table)
         {
-            ReportDataSource reportDataSource = new ReportDataSource("DataSetRptHoaDonKhachSan", table);
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1RptBaoCaoHoaDon", table);
             reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
         }

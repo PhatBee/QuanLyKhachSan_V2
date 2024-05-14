@@ -259,8 +259,8 @@ namespace QuanLyKhachSan
                     "FROM HoaDon " +
                     "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                     "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
-                    "INNER JOIN DichVuPhong ON HoaDon.MaHD = DichVuPhong.MaHD AND HoaDon.MaPhong = DichVuPhong.MaPhong " +
-                    "INNER JOIN DichVu ON DichVuPhong.MaDV = DichVu.MaDV " +
+                    "LEFT OUTER JOIN DichVuPhong ON HoaDon.MaHD = DichVuPhong.MaHD AND HoaDon.MaPhong = DichVuPhong.MaPhong " +
+                    "LEFT OUTER JOIN DichVu ON DichVuPhong.MaDV = DichVu.MaDV " +
                     "INNER JOIN NhanVien ON HoaDon.MaNV = NhanVien.MaNV " +
                     "WHERE HoaDon.MaHD = @mahd " +
                     "GROUP BY HoaDon.MaHD, TenKH, HoaDon.CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia, DichVuPhong.MaDV, TenDV, DichVu.DonGia, NgayThanhToan, TenNV", mydb.getConnection);

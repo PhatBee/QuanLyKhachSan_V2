@@ -161,11 +161,6 @@
     <Compile Include="ChiTietKhachHangForm.Designer.cs">
       <DependentUpon>ChiTietKhachHangForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSetRptHoaDonKhachSan.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetRptHoaDonKhachSan.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DatPhongForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,17 +369,6 @@
     <EmbeddedResource Include="UserControlRoom.resx">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSetRptHoaDonKhachSan.xsc">
-      <DependentUpon>DataSetRptHoaDonKhachSan.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetRptHoaDonKhachSan.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetRptHoaDonKhachSan.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetRptHoaDonKhachSan.xss">
-      <DependentUpon>DataSetRptHoaDonKhachSan.xsd</DependentUpon>
-    </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
