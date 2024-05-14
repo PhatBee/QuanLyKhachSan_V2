@@ -30,7 +30,7 @@ namespace QuanLyKhachSan
             SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
                 "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                 "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
-                "WHERE TinhTrang = 1 and HoaDon.MaPhong = @mp", mydb.getConnection);
+                "WHERE TinhTrang = 1 and HoaDon.MaPhong = @mp and ChiPhi is NULL", mydb.getConnection);
             cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
             SqlDataAdapter adpt = new SqlDataAdapter(cmd);
             adpt.Fill(dt);
@@ -55,59 +55,66 @@ namespace QuanLyKhachSan
 
         private void ThongTinPhong_Load(object sender, EventArgs e)
         {
-
-            hienThiThongTinPhong();
-
-            // Load thông tin cho combobox Dịch Vụ
-            SqlCommand cmd2 = new SqlCommand("SELECT * FROM DichVu", mydb.getConnection);
-            SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
-            DataTable dt2 = new DataTable();
-            adpt2.Fill(dt2);
-
-            cbxDV.DataSource = dt2;
-            cbxDV.DisplayMember = "TenDV";
-            cbxDV.ValueMember = "MaDV";
-
-            dataGridView1.RowTemplate.Height = 50;
-            SqlCommand cmd3 = new SqlCommand("SELECT MaPhong, TenDV 'Tên Dịch Vụ', DonGia 'Đơn Giá', Count(TenDV) 'Số Lượng', Sum(DonGia) 'Tổng' " +
-                "FROM DichVuPhong INNER JOIN DichVu ON DichVu.MaDV = DichVuPhong.MaDV " +
-                "Where MaPhong = @maphong and MaHD = @mahd " +
-                "GROUP BY TenDV, DonGia, MaPhong", mydb.getConnection);
-            cmd3.Parameters.Add("@maphong", SqlDbType.VarChar).Value = tbxSoPhong.Text;
-            cmd3.Parameters.Add("@mahd", SqlDbType.VarChar).Value = dt.Rows[0]["MaHD"].ToString();
-            DataTable dt3 = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd3);
-            adapter.Fill(dt3);
-            dataGridView1.DataSource = dt3;
-            dataGridView1.AllowUserToAddRows = false;
-
-            tbdichvu = dt3;
-
-            int tongTienDichVu = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            try
             {
-                // Kiểm tra nếu hàng không phải là hàng mới thêm và không phải là hàng header
-                if (!row.IsNewRow)
+
+                hienThiThongTinPhong();
+
+                // Load thông tin cho combobox Dịch Vụ
+                SqlCommand cmd2 = new SqlCommand("SELECT * FROM DichVu", mydb.getConnection);
+                SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
+                DataTable dt2 = new DataTable();
+                adpt2.Fill(dt2);
+
+                cbxDV.DataSource = dt2;
+                cbxDV.DisplayMember = "TenDV";
+                cbxDV.ValueMember = "MaDV";
+
+                dataGridView1.RowTemplate.Height = 50;
+                SqlCommand cmd3 = new SqlCommand("SELECT MaPhong, TenDV 'Tên Dịch Vụ', DonGia 'Đơn Giá', Count(TenDV) 'Số Lượng', Sum(DonGia) 'Tổng' " +
+                    "FROM DichVuPhong INNER JOIN DichVu ON DichVu.MaDV = DichVuPhong.MaDV " +
+                    "Where MaPhong = @maphong and MaHD = @mahd " +
+                    "GROUP BY TenDV, DonGia, MaPhong", mydb.getConnection);
+                cmd3.Parameters.Add("@maphong", SqlDbType.VarChar).Value = tbxSoPhong.Text;
+                cmd3.Parameters.Add("@mahd", SqlDbType.VarChar).Value = dt.Rows[0]["MaHD"].ToString();
+                DataTable dt3 = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd3);
+                adapter.Fill(dt3);
+                dataGridView1.DataSource = dt3;
+                dataGridView1.AllowUserToAddRows = false;
+
+                tbdichvu = dt3;
+
+                int tongTienDichVu = 0;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    tongTienDichVu += Convert.ToInt32(row.Cells[4].Value.ToString());          // Chỉnh lại thứ tự của cột nếu đã ẩn đi MaPhong                                                          
+                    // Kiểm tra nếu hàng không phải là hàng mới thêm và không phải là hàng header
+                    if (!row.IsNewRow)
+                    {
+                        tongTienDichVu += Convert.ToInt32(row.Cells[4].Value.ToString());          // Chỉnh lại thứ tự của cột nếu đã ẩn đi MaPhong                                                          
+                    }
                 }
+                lblTienDV.Text = tongTienDichVu.ToString("#,##0");
+                TimeSpan kc = datiRa.Value - datiVao.Value;
+                int songay = (int)kc.TotalDays;
+                lblSoNgay.Text = songay.ToString();
+
+                lblGiaPhong.Text = tbxGiaPhong.Text;
+
+                int tienphong = (songay * Convert.ToInt32(lblGiaPhong.Text));
+
+                lblTienPhong.Text = tienphong.ToString("#,##0");
+
+                tongtien = tienphong + Convert.ToInt32(tongTienDichVu);
+
+                lblThanhToan.Text = (tienphong + Convert.ToInt32(tongTienDichVu)).ToString("#,##0");
+
+                dataGridView1.Columns[0].Visible = false;
             }
-            lblTienDV.Text = tongTienDichVu.ToString("#,##0");
-            TimeSpan kc = datiRa.Value - datiVao.Value;
-            int songay = (int)kc.TotalDays;
-            lblSoNgay.Text = songay.ToString();
-
-            lblGiaPhong.Text = tbxGiaPhong.Text;
-
-            int tienphong = (songay * Convert.ToInt32(lblGiaPhong.Text));
-
-            lblTienPhong.Text = tienphong.ToString("#,##0");
-
-            tongtien = tienphong + Convert.ToInt32(tongTienDichVu);
-
-            lblThanhToan.Text = (tienphong + Convert.ToInt32(tongTienDichVu)).ToString("#,##0");
-
-            dataGridView1.Columns[0].Visible = false;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
