@@ -24,7 +24,7 @@ namespace QuanLyKhachSan
         {
             MYDB mydb = new MYDB();
             SqlCommand cmd = new SqlCommand("SELECT MaPhong, TenLoaiPhong, TinhTrang FROM Phong " +
-                "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong", mydb.getConnection);
+                "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong ORDER BY MaPhong", mydb.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);

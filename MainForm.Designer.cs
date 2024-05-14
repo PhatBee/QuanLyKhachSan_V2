@@ -143,7 +143,7 @@
             this.panel2.Controls.Add(this.lblChucVu);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1577, 84);
+            this.panel2.Size = new System.Drawing.Size(1654, 84);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -359,7 +359,7 @@
             this.flowLayoutPanel1.Controls.Add(this.pnQLNV);
             this.flowLayoutPanel1.Controls.Add(this.pnLichTruc);
             this.flowLayoutPanel1.Controls.Add(this.pnBaoCao);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 84);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 84);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(237, 848);
             this.flowLayoutPanel1.TabIndex = 5;
@@ -431,16 +431,16 @@
             // 
             // pnMain
             // 
-            this.pnMain.Location = new System.Drawing.Point(236, 84);
+            this.pnMain.Location = new System.Drawing.Point(237, 84);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1344, 818);
+            this.pnMain.Size = new System.Drawing.Size(1406, 818);
             this.pnMain.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1579, 869);
+            this.ClientSize = new System.Drawing.Size(1644, 869);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);

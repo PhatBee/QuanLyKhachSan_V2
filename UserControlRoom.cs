@@ -73,18 +73,20 @@ namespace QuanLyKhachSan
 
         private void btnTra_Click(object sender, EventArgs e)
         {
-            if (tinhTrang == true)
+            try
             {
-                DialogResult result = MessageBox.Show("Xác nhận trả phòng", "Hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (tinhTrang == true)
                 {
-                    ThanhToanForm thanhToanForm = new ThanhToanForm(soPhong);
-                    thanhToanForm.ShowDialog();
+                    DialogResult result = MessageBox.Show("Xác nhận trả phòng", "Hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        ThanhToanForm thanhToanForm = new ThanhToanForm(soPhong);
+                        thanhToanForm.ShowDialog();
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("ERROR", "Hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Hệ thống",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

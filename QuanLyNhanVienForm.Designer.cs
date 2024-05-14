@@ -78,7 +78,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1341, 50);
+            this.panel2.Size = new System.Drawing.Size(1406, 50);
             this.panel2.TabIndex = 2;
             // 
             // label5
@@ -87,7 +87,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(12, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1329, 20);
+            this.label5.Size = new System.Drawing.Size(1394, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "QUẢN LÝ NHÂN VIÊN";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,7 +96,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(452, 56);
@@ -104,7 +104,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(889, 534);
+            this.dataGridView1.Size = new System.Drawing.Size(954, 534);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -288,6 +288,7 @@
             this.PictureBoxEmployeeImage.Location = new System.Drawing.Point(173, 442);
             this.PictureBoxEmployeeImage.Name = "PictureBoxEmployeeImage";
             this.PictureBoxEmployeeImage.Size = new System.Drawing.Size(256, 132);
+            this.PictureBoxEmployeeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxEmployeeImage.TabIndex = 54;
             this.PictureBoxEmployeeImage.TabStop = false;
             // 
@@ -501,7 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1347, 815);
+            this.ClientSize = new System.Drawing.Size(1408, 815);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnHuy);

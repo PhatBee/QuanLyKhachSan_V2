@@ -36,15 +36,15 @@
             // 
             this.flpPhong.Location = new System.Drawing.Point(0, 2);
             this.flpPhong.Name = "flpPhong";
-            this.flpPhong.Size = new System.Drawing.Size(1327, 747);
+            this.flpPhong.Size = new System.Drawing.Size(1476, 735);
             this.flpPhong.TabIndex = 4;
             // 
             // btnQuanLyPhong
             // 
             this.btnQuanLyPhong.AutoSize = true;
-            this.btnQuanLyPhong.Location = new System.Drawing.Point(0, 756);
+            this.btnQuanLyPhong.Location = new System.Drawing.Point(12, 743);
             this.btnQuanLyPhong.Name = "btnQuanLyPhong";
-            this.btnQuanLyPhong.Size = new System.Drawing.Size(123, 30);
+            this.btnQuanLyPhong.Size = new System.Drawing.Size(123, 40);
             this.btnQuanLyPhong.TabIndex = 5;
             this.btnQuanLyPhong.Text = "Quản lý phòng";
             this.btnQuanLyPhong.UseVisualStyleBackColor = true;
@@ -52,12 +52,12 @@
             // 
             // DSPhongForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 790);
             this.Controls.Add(this.btnQuanLyPhong);
             this.Controls.Add(this.flpPhong);
-            this.Font = new System.Drawing.Font("Aptos Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DSPhongForm";

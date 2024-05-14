@@ -71,38 +71,45 @@ namespace QuanLyKhachSan
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            tbxMaNV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            tbxHoTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            dateTimePicker1.Value = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
-
-  
-            if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Nam"))
+            try
             {
-                radiobtnNam.Checked = true;
-            }
-            if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Nữ"))
+                tbxMaNV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                tbxHoTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                dateTimePicker1.Value = (DateTime)dataGridView1.CurrentRow.Cells[2].Value;
+
+
+                if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Nam"))
+                {
+                    radiobtnNam.Checked = true;
+                }
+                if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Nữ"))
+                {
+                    radiobtnNu.Checked = true;
+                }
+                if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Khác"))
+                {
+                    radiobtnNu.Checked = true;
+                }
+
+                tbxCCCD.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                tbxSdt.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                tbxDiaChi.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+
+                string tenCV = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+
+                cbxChucVu.Text = tenCV.ToString();
+
+
+                // Code xử lý hình ảnh up lên
+                byte[] pic;
+                pic = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
+                MemoryStream picture = new MemoryStream(pic);
+                PictureBoxEmployeeImage.Image = Image.FromStream(picture);
+            }catch(Exception ex)
             {
-                radiobtnNu.Checked = true;
+                MessageBox.Show(ex.Message,"Hệ thống",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            if ((dataGridView1.CurrentRow.Cells[3].Value.ToString().Trim() == "Khác"))
-            {
-                radiobtnNu.Checked = true;
-            }
-
-            tbxCCCD.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            tbxSdt.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            tbxDiaChi.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-
-            string tenCV = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-
-            cbxChucVu.Text = tenCV.ToString();
-
-
-            // Code xử lý hình ảnh up lên
-            byte[] pic;
-            pic = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
-            MemoryStream picture = new MemoryStream(pic);
-            PictureBoxEmployeeImage.Image = Image.FromStream(picture);
+            
 
         }
 
