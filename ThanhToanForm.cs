@@ -110,7 +110,7 @@ namespace QuanLyKhachSan
                 SqlCommand cmd = new SqlCommand("SELECT MaHD, HoaDon.MaPhong, TenLoaiPhong, DonGia, TenKH, CCCD, SDT, NgayDat, NgayTra, TinhTrang FROM HOADON " +
                     "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
                     "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
-                    "WHERE TinhTrang = 1 and ChiPhi is NULL and HoaDon.MaPhong = @mp", mydb.getConnection);
+                    "WHERE TinhTrang = 1 and HoaDon.MaPhong = @mp", mydb.getConnection);
                 cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = tbxSoPhong.Text;
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd);
                 adpt.Fill(dt);
@@ -225,6 +225,26 @@ namespace QuanLyKhachSan
             }
             
 
+        }
+
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT HoaDon.MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia as DonGiaPhong, DichVuPhong.MaDV, TenDV, DichVu.DonGia as DonGiaDichVu, Count(TenDV) as SoLuong, Sum(DichVu.DonGia) as TongTien " +
+                "FROM HoaDon " +
+                "INNER JOIN Phong ON HoaDon.MaPhong = Phong.MaPhong " +
+                "INNER JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong " +
+                "INNER JOIN DichVuPhong ON HoaDon.MaHD = DichVuPhong.MaHD AND HoaDon.MaPhong = DichVuPhong.MaPhong " +
+                "INNER JOIN DichVu ON DichVuPhong.MaDV = DichVu.MaDV " +
+                "WHERE HoaDon.MaHD = @mahd " +
+                "GROUP BY HoaDon.MaHD, TenKH, CCCD, SDT, GhiChu, NgayDat, NgayTra, ChiPhi, HoaDon.MaPhong, Phong.MaLoaiPhong, TenLoaiPhong, LoaiPhong.DonGia, DichVuPhong.MaDV, TenDV, DichVu.DonGia", mydb.getConnection);
+            cmd.Parameters.Add("@mahd", SqlDbType.VarChar).Value = tbxHoaDon.Text;
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable result = new DataTable();
+            adpt.Fill(result);
+
+            PreviewPrintBaoCao rpt = new PreviewPrintBaoCao();
+            rpt.ShowReport(result);
+            rpt.ShowDialog();
         }
     }
 }
