@@ -161,6 +161,9 @@
     <Compile Include="ChiTietKhachHangForm.Designer.cs">
       <DependentUpon>ChiTietKhachHangForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSetRptHoaDonKhachSan.cs">
+      <DependentUpon>DataSetRptHoaDonKhachSan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetRptHoaDonKhachSan.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
