@@ -960,8 +960,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSetRptBaoCaoHoaDon</rd:DataSetName>
-        <rd:SchemaPath>D:\Nam_2\HK2\Programming_Windows\Git_QLKS\QLKS_v3_panel\DataSetRptBaoCaoHoaDon.xsd</rd:SchemaPath>
+        <rd:DataSetName>QuanLyKhachSanDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\Nam_2\HK2\Programming_Windows\Git_QLKS\QLKS_v3_panel\QuanLyKhachSanDataSet.xsd</rd:SchemaPath>
         <rd:TableName>rptBaoCaoHoaDonKhachSan</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
