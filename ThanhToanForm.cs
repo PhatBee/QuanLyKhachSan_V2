@@ -207,7 +207,10 @@ namespace QuanLyKhachSan
             try
             {
                 SqlCommand command = new SqlCommand("UPDATE Phong SET TinhTrang = 0 WHERE MaPhong = '" + _sophong + "'", mydb.getConnection);
-                SqlCommand command1 = new SqlCommand("UPDATE HOADON SET ChiPhi = '"+_thanhtoan+"'  WHERE MaHD = '" + tbxHoaDon.Text + "'",mydb.getConnection);
+                SqlCommand command1 = new SqlCommand("UPDATE HOADON SET ChiPhi = @cp, NgayThanhToan =  @ntt, MaNV = @manv  WHERE MaHD = '" + tbxHoaDon.Text + "'",mydb.getConnection);
+                command1.Parameters.Add("@cp", SqlDbType.Int).Value = _thanhtoan;
+                command1.Parameters.Add("@ntt",SqlDbType.DateTime).Value = DateTime.Now;
+                command1.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
                 mydb.openConection();
                 if (command.ExecuteNonQuery() == 1 && command1.ExecuteNonQuery()==1)
                 {
