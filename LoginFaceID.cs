@@ -67,7 +67,7 @@ namespace QuanLyKhachSan
                         // Đóng form hiện tại
                         this.Dispose();
                     }*/
-                    if(checkNhanVien(maNV) == true && maNV == Globals.GlobalUserID)
+                    if(checkNhanVien(maNV) == true && label1.Text == Globals.GlobalUserID)
                     {
                         faceRec.closeCamera();
                         timer.Stop();
@@ -99,7 +99,7 @@ namespace QuanLyKhachSan
         {
             try
             {
-                DateTime tmp = new DateTime(2024, 05, 11);
+                DateTime tmp = new DateTime(2024, 05, 13);
                 DateTime.TryParse(tmp.ToString(), out DateTime ngay);
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM PhanCong Where MaNV = @manv AND Ngay = @ngay", mydb.getConnection);

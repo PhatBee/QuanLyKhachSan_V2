@@ -114,10 +114,10 @@ namespace QuanLyKhachSan
             if (dt.Rows.Count <= 0)
             {
                 label3.Text = "Ca làm việc: Hôm nay bạn không có ca làm việc!";
-                picCheckIn.Hide();
+                /*picCheckIn.Hide();
                 picCheckOut.Hide();
                 lblCheckIn.Hide();
-                lblCheckOut.Hide();
+                lblCheckOut.Hide();*/
 
             }
             else

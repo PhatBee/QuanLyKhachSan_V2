@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbxLoaiPhong = new System.Windows.Forms.TextBox();
             this.datiTra = new System.Windows.Forms.DateTimePicker();
             this.datiDat = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnDatPhong = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.tbxLoaiPhong = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 338);
             this.panel1.TabIndex = 0;
+            // 
+            // tbxLoaiPhong
+            // 
+            this.tbxLoaiPhong.Enabled = false;
+            this.tbxLoaiPhong.Location = new System.Drawing.Point(117, 84);
+            this.tbxLoaiPhong.Name = "tbxLoaiPhong";
+            this.tbxLoaiPhong.Size = new System.Drawing.Size(96, 26);
+            this.tbxLoaiPhong.TabIndex = 10;
             // 
             // datiTra
             // 
@@ -266,14 +274,6 @@
             this.btnHuy.Text = "Huỷ";
             this.btnHuy.UseVisualStyleBackColor = true;
             // 
-            // tbxLoaiPhong
-            // 
-            this.tbxLoaiPhong.Enabled = false;
-            this.tbxLoaiPhong.Location = new System.Drawing.Point(117, 84);
-            this.tbxLoaiPhong.Name = "tbxLoaiPhong";
-            this.tbxLoaiPhong.Size = new System.Drawing.Size(96, 26);
-            this.tbxLoaiPhong.TabIndex = 10;
-            // 
             // DatPhongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -286,7 +286,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DatPhongForm";
-            this.Text = "DatPhongForm";
+            this.Text = "Dặt Phòng";
             this.Load += new System.EventHandler(this.DatPhongForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
