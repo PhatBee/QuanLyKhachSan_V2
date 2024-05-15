@@ -267,7 +267,7 @@
             // 
             this.pnQLNV.Controls.Add(this.picQLNV);
             this.pnQLNV.Controls.Add(this.lblQuanLyNV);
-            this.pnQLNV.Location = new System.Drawing.Point(3, 267);
+            this.pnQLNV.Location = new System.Drawing.Point(3, 202);
             this.pnQLNV.Name = "pnQLNV";
             this.pnQLNV.Size = new System.Drawing.Size(227, 59);
             this.pnQLNV.TabIndex = 4;
@@ -333,7 +333,7 @@
             // 
             this.pnThongKe.Controls.Add(this.picThongKe);
             this.pnThongKe.Controls.Add(this.lblThongKe);
-            this.pnThongKe.Location = new System.Drawing.Point(3, 202);
+            this.pnThongKe.Location = new System.Drawing.Point(3, 332);
             this.pnThongKe.Name = "pnThongKe";
             this.pnThongKe.Size = new System.Drawing.Size(227, 59);
             this.pnThongKe.TabIndex = 4;
@@ -358,9 +358,9 @@
             this.flowLayoutPanel1.Controls.Add(this.pnDSPhong);
             this.flowLayoutPanel1.Controls.Add(this.pnDSChiTiet);
             this.flowLayoutPanel1.Controls.Add(this.pnPhanCong);
-            this.flowLayoutPanel1.Controls.Add(this.pnThongKe);
             this.flowLayoutPanel1.Controls.Add(this.pnQLNV);
             this.flowLayoutPanel1.Controls.Add(this.pnLichTruc);
+            this.flowLayoutPanel1.Controls.Add(this.pnThongKe);
             this.flowLayoutPanel1.Controls.Add(this.pnBaoCao);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 84);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -371,7 +371,7 @@
             // 
             this.pnLichTruc.Controls.Add(this.picLichTruc);
             this.pnLichTruc.Controls.Add(this.lblLichTruc);
-            this.pnLichTruc.Location = new System.Drawing.Point(3, 332);
+            this.pnLichTruc.Location = new System.Drawing.Point(3, 267);
             this.pnLichTruc.Name = "pnLichTruc";
             this.pnLichTruc.Size = new System.Drawing.Size(227, 59);
             this.pnLichTruc.TabIndex = 5;

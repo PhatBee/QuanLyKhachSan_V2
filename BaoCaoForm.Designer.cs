@@ -57,7 +57,7 @@
             // 
             this.btnXacNhan.AutoSize = true;
             this.btnXacNhan.Enabled = false;
-            this.btnXacNhan.Location = new System.Drawing.Point(414, 524);
+            this.btnXacNhan.Location = new System.Drawing.Point(486, 524);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(108, 30);
             this.btnXacNhan.TabIndex = 2;

@@ -41,7 +41,6 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXemDanhSach = new System.Windows.Forms.Button();
             this.btnLuu2 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonPhanCong = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@
             this.cboChonChucVu = new System.Windows.Forms.ComboBox();
             this.panelChuky.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,7 +127,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 205);
+            this.dataGridView1.Location = new System.Drawing.Point(303, 208);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(661, 462);
             this.dataGridView1.TabIndex = 15;
@@ -137,23 +135,25 @@
             // btnPhanCong
             // 
             this.btnPhanCong.AutoSize = true;
-            this.btnPhanCong.Location = new System.Drawing.Point(682, 695);
+            this.btnPhanCong.Location = new System.Drawing.Point(259, 697);
             this.btnPhanCong.Name = "btnPhanCong";
             this.btnPhanCong.Size = new System.Drawing.Size(95, 30);
             this.btnPhanCong.TabIndex = 18;
             this.btnPhanCong.Text = "Phân công";
             this.btnPhanCong.UseVisualStyleBackColor = true;
+            this.btnPhanCong.Visible = false;
             this.btnPhanCong.Click += new System.EventHandler(this.btnPhanCong_Click);
             // 
             // btnLuu
             // 
             this.btnLuu.AutoSize = true;
-            this.btnLuu.Location = new System.Drawing.Point(565, 695);
+            this.btnLuu.Location = new System.Drawing.Point(142, 697);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(90, 30);
             this.btnLuu.TabIndex = 19;
             this.btnLuu.Text = "Lưu (Cũ)";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Visible = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXemDanhSach
@@ -170,22 +170,14 @@
             // btnLuu2
             // 
             this.btnLuu2.AutoSize = true;
-            this.btnLuu2.Location = new System.Drawing.Point(451, 695);
+            this.btnLuu2.Location = new System.Drawing.Point(28, 697);
             this.btnLuu2.Name = "btnLuu2";
             this.btnLuu2.Size = new System.Drawing.Size(90, 30);
             this.btnLuu2.TabIndex = 22;
             this.btnLuu2.Text = "Lưu";
             this.btnLuu2.UseVisualStyleBackColor = true;
+            this.btnLuu2.Visible = false;
             this.btnLuu2.Click += new System.EventHandler(this.btnLuu2_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(719, 205);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(617, 462);
-            this.dataGridView2.TabIndex = 23;
             // 
             // label5
             // 
@@ -209,21 +201,21 @@
             // 
             // buttonPhanCong
             // 
-            this.buttonPhanCong.Location = new System.Drawing.Point(829, 690);
+            this.buttonPhanCong.Location = new System.Drawing.Point(424, 692);
             this.buttonPhanCong.Name = "buttonPhanCong";
             this.buttonPhanCong.Size = new System.Drawing.Size(148, 40);
             this.buttonPhanCong.TabIndex = 24;
-            this.buttonPhanCong.Text = "PhanCong(v2)";
+            this.buttonPhanCong.Text = "Phân công";
             this.buttonPhanCong.UseVisualStyleBackColor = true;
             this.buttonPhanCong.Click += new System.EventHandler(this.buttonPhanCong_Click);
             // 
             // buttonLuu
             // 
-            this.buttonLuu.Location = new System.Drawing.Point(983, 695);
+            this.buttonLuu.Location = new System.Drawing.Point(703, 692);
             this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(105, 35);
+            this.buttonLuu.Size = new System.Drawing.Size(105, 40);
             this.buttonLuu.TabIndex = 25;
-            this.buttonLuu.Text = "Lưu(v2)";
+            this.buttonLuu.Text = "Lưu";
             this.buttonLuu.UseVisualStyleBackColor = true;
             this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
@@ -243,7 +235,6 @@
             this.Controls.Add(this.cboChonChucVu);
             this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.buttonPhanCong);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnLuu2);
             this.Controls.Add(this.btnXemDanhSach);
             this.Controls.Add(this.btnLuu);
@@ -264,7 +255,6 @@
             this.panelChuky.ResumeLayout(false);
             this.panelChuky.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -285,7 +275,6 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXemDanhSach;
         private System.Windows.Forms.Button btnLuu2;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonPhanCong;

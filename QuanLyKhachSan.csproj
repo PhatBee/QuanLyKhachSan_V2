@@ -161,6 +161,11 @@
     <Compile Include="ChiTietKhachHangForm.Designer.cs">
       <DependentUpon>ChiTietKhachHangForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSetNhanVienKhachSan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetNhanVienKhachSan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatPhongForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +240,12 @@
     </Compile>
     <Compile Include="Phong.cs" />
     <Compile Include="PhongADO.cs" />
+    <Compile Include="PreviewNhanVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewNhanVienForm.Designer.cs">
+      <DependentUpon>PreviewNhanVienForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreviewPrintBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +353,9 @@
     <EmbeddedResource Include="PhanCongForm.resx">
       <DependentUpon>PhanCongForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreviewNhanVienForm.resx">
+      <DependentUpon>PreviewNhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PreviewPrintBaoCao.resx">
       <DependentUpon>PreviewPrintBaoCao.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +379,7 @@
       <DependentUpon>QuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptHoaDon.rdlc" />
+    <EmbeddedResource Include="rptNhanVien.rdlc" />
     <EmbeddedResource Include="ThanhToanForm.resx">
       <DependentUpon>ThanhToanForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +398,17 @@
     <EmbeddedResource Include="UserControlRoom.resx">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSetNhanVienKhachSan.xsc">
+      <DependentUpon>DataSetNhanVienKhachSan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetNhanVienKhachSan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetNhanVienKhachSan.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetNhanVienKhachSan.xss">
+      <DependentUpon>DataSetNhanVienKhachSan.xsd</DependentUpon>
+    </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

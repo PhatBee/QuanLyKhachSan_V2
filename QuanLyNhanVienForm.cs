@@ -62,6 +62,24 @@ namespace QuanLyKhachSan
             cbxChucVu.ValueMember = "MaCV";
             cbxChucVu.DisplayMember = "TenCV";
 
+            SqlCommand quyen = new SqlCommand("SELECT * FROM NhanVien " +
+                "WHERE MaCV = 'CV001' AND MaNV = @manv", mydb.getConnection);
+            quyen.Parameters.Add("@manv", SqlDbType.VarChar).Value = Globals.GlobalUserID;
+            SqlDataAdapter adptquyen = new SqlDataAdapter(quyen);
+            DataTable dtquyen = new DataTable();
+            adptquyen.Fill(dtquyen);
+
+            if (dtquyen.Rows.Count > 0 )
+            {
+
+            }   
+            else
+            {
+                btnChinhSua.Enabled = false;
+                btnThem.Enabled = false;
+                btnXoa.Enabled = false;
+            }    
+
         }
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
@@ -445,6 +463,20 @@ namespace QuanLyKhachSan
             }
             
 
+        }
+
+        private void btnInDanhSach_Click(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("SELECT MaNV, TenNV, NgaySinh, Phai, CCCD, SoDT, DiaChi, TenCV " +
+                "FROM NhanVien " +
+                "INNER JOIN ChucVu ON NhanVien.MaCV = ChucVu.MaCV", mydb.getConnection);
+            SqlDataAdapter adpt = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            PreviewNhanVienForm rpt = new PreviewNhanVienForm();
+            rpt.ShowReport(dt);
+            rpt.ShowDialog();
         }
     }
 }

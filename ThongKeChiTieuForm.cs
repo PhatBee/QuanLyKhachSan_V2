@@ -191,10 +191,10 @@ namespace QuanLyKhachSan
                 return;
             }
 
-            SqlCommand cmd = new SqlCommand("SELECT MaPhong as 'Mã phòng', Sum(ChiPhi) as 'Tổng' " +
+            SqlCommand cmd = new SqlCommand("SELECT CONVERT(DATE, NgayThanhToan) as 'Ngày', Sum(ChiPhi) as 'Tổng' " +
                 "FROM HoaDon " +
                 "WHERE CAST(NgayThanhToan AS DATE) >= @datefrom AND CAST(NgayThanhToan AS DATE) <= @dateto " +
-                "GROUP BY MaPhong", mydb.getConnection);
+                "GROUP BY CONVERT(DATE, NgayThanhToan)", mydb.getConnection);
             cmd.Parameters.Add("@datefrom", SqlDbType.DateTime).Value = dt1.Date;
             cmd.Parameters.Add("@dateto", SqlDbType.DateTime).Value = dt2.Date;
 
@@ -234,9 +234,9 @@ namespace QuanLyKhachSan
             // Đọc dữ liệu từ DataGridView và thêm vào Chart
             foreach (DataGridViewRow row in dataGridViewDoanhThu.Rows)
             {
-                if (row.Cells["Mã phòng"].Value != null && row.Cells["Tổng"].Value != null)
+                if (row.Cells["Ngày"].Value != null && row.Cells["Tổng"].Value != null)
                 {
-                    string tenPhong = row.Cells["Mã phòng"].Value.ToString();
+                    string tenPhong = row.Cells["Ngày"].Value.ToString();
                     decimal doanhThu;
                     if (decimal.TryParse(row.Cells["Tổng"].Value.ToString(), out doanhThu))
                     {

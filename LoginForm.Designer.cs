@@ -39,8 +39,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbxPass = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.llbQuenMatKhau = new System.Windows.Forms.LinkLabel();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.rdoLaoCong = new System.Windows.Forms.RadioButton();
@@ -161,28 +159,6 @@
             this.tbxPass.Size = new System.Drawing.Size(470, 40);
             this.tbxPass.TabIndex = 1;
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(247, 315);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(210, 18);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Chưa có Username? Tạo ngay";
-            // 
-            // llbQuenMatKhau
-            // 
-            this.llbQuenMatKhau.AutoSize = true;
-            this.llbQuenMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbQuenMatKhau.Location = new System.Drawing.Point(247, 395);
-            this.llbQuenMatKhau.Name = "llbQuenMatKhau";
-            this.llbQuenMatKhau.Size = new System.Drawing.Size(117, 18);
-            this.llbQuenMatKhau.TabIndex = 6;
-            this.llbQuenMatKhau.TabStop = true;
-            this.llbQuenMatKhau.Text = "Quên mật khẩu?";
-            // 
             // btnDangNhap
             // 
             this.btnDangNhap.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,8 +234,6 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.llbQuenMatKhau);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
@@ -294,8 +268,6 @@
         private System.Windows.Forms.TextBox tbxUser;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox tbxPass;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel llbQuenMatKhau;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.RadioButton rdoQuanLy;
