@@ -847,7 +847,7 @@ namespace QuanLyKhachSan
 
         private bool QuanLyHopLe(DateTime ngay)
         {
-            /*if (ngay.Date < DateTime.Now.Date)
+            if (ngay.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -891,14 +891,13 @@ namespace QuanLyKhachSan
                 else
                 {
                     return true;
-                }    
-            }*/
-            return true;
+                }
+            }
         }
 
         private bool LaoCongHopLe(DateTime ngay)
         {
-            /*if (ngay.Date < DateTime.Now.Date)
+            if (ngay.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công quản lý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -943,13 +942,12 @@ namespace QuanLyKhachSan
                 {
                     return true;
                 }
-            }*/
-            return true;
+            }
         }
 
         private bool TiepTanHopLe(DateTime ngay)
         {
-            /*if (ngay.Date < DateTime.Now.Date)
+            if (ngay.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Thời gian phân công nhỏ hơn thời gian hiện tại", "Phân công tiếp tân", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -994,8 +992,7 @@ namespace QuanLyKhachSan
                 {
                     return true;
                 }
-            }*/
-            return true;
+            }
         }
     }
 }

@@ -70,6 +70,7 @@ namespace QuanLyKhachSan
                 pnPhanCong.Visible = false;
                 pnThongKe.Visible = false;
                 pnBaoCao.Visible = false;
+
             }    
             else if (text == "Lao Công")
             {
@@ -79,6 +80,7 @@ namespace QuanLyKhachSan
                 pnQLNV.Visible = false;
                 pnDSChiTiet.Visible = false;
                 pnDSPhong.Visible = false ;
+                pnDichVu.Visible = false ;
             }    
         }
 
@@ -399,6 +401,23 @@ namespace QuanLyKhachSan
         private void picThongKe_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ThongKeChiTieuForm());
+        }
+
+        private void pnDichVu_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyDichVu());
+        }
+
+        private void pivDichVu_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyDichVu());
+
+        }
+
+        private void lblDichVu_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyDichVu());
+
         }
     }
 }

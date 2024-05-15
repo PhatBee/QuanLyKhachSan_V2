@@ -32,10 +32,6 @@
             this.dtpBatDau = new System.Windows.Forms.DateTimePicker();
             this.panelChuky = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxCa = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblThoiGianCa = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnPhanCong = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -46,6 +42,10 @@
             this.buttonPhanCong = new System.Windows.Forms.Button();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.cboChonChucVu = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxCa = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblThoiGianCa = new System.Windows.Forms.Label();
             this.panelChuky.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -71,6 +71,7 @@
             // panelChuky
             // 
             this.panelChuky.AutoSize = true;
+            this.panelChuky.Controls.Add(this.cboChonChucVu);
             this.panelChuky.Controls.Add(this.label1);
             this.panelChuky.Controls.Add(this.dtpBatDau);
             this.panelChuky.Location = new System.Drawing.Point(225, 93);
@@ -86,42 +87,6 @@
             this.label3.Size = new System.Drawing.Size(152, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Thời gian phân công";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(579, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Ca làm việc:";
-            // 
-            // cbxCa
-            // 
-            this.cbxCa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCa.FormattingEnabled = true;
-            this.cbxCa.Location = new System.Drawing.Point(703, 110);
-            this.cbxCa.Name = "cbxCa";
-            this.cbxCa.Size = new System.Drawing.Size(74, 28);
-            this.cbxCa.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(579, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 20);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Thời gian ca:";
-            // 
-            // lblThoiGianCa
-            // 
-            this.lblThoiGianCa.AutoSize = true;
-            this.lblThoiGianCa.Location = new System.Drawing.Point(699, 154);
-            this.lblThoiGianCa.Name = "lblThoiGianCa";
-            this.lblThoiGianCa.Size = new System.Drawing.Size(21, 20);
-            this.lblThoiGianCa.TabIndex = 14;
-            this.lblThoiGianCa.Text = "...";
             // 
             // dataGridView1
             // 
@@ -222,17 +187,56 @@
             // cboChonChucVu
             // 
             this.cboChonChucVu.FormattingEnabled = true;
-            this.cboChonChucVu.Location = new System.Drawing.Point(55, 146);
+            this.cboChonChucVu.Location = new System.Drawing.Point(9, 58);
             this.cboChonChucVu.Name = "cboChonChucVu";
             this.cboChonChucVu.Size = new System.Drawing.Size(106, 28);
             this.cboChonChucVu.TabIndex = 26;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(579, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Ca làm việc:";
+            this.label4.Visible = false;
+            // 
+            // cbxCa
+            // 
+            this.cbxCa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCa.FormattingEnabled = true;
+            this.cbxCa.Location = new System.Drawing.Point(703, 110);
+            this.cbxCa.Name = "cbxCa";
+            this.cbxCa.Size = new System.Drawing.Size(74, 28);
+            this.cbxCa.TabIndex = 12;
+            this.cbxCa.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(579, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Thời gian ca:";
+            this.label6.Visible = false;
+            // 
+            // lblThoiGianCa
+            // 
+            this.lblThoiGianCa.AutoSize = true;
+            this.lblThoiGianCa.Location = new System.Drawing.Point(699, 154);
+            this.lblThoiGianCa.Name = "lblThoiGianCa";
+            this.lblThoiGianCa.Size = new System.Drawing.Size(21, 20);
+            this.lblThoiGianCa.TabIndex = 14;
+            this.lblThoiGianCa.Text = "...";
+            this.lblThoiGianCa.Visible = false;
             // 
             // PhanCongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 806);
-            this.Controls.Add(this.cboChonChucVu);
             this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.buttonPhanCong);
             this.Controls.Add(this.btnLuu2);
@@ -266,10 +270,6 @@
         private System.Windows.Forms.DateTimePicker dtpBatDau;
         private System.Windows.Forms.Panel panelChuky;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbxCa;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblThoiGianCa;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnPhanCong;
         private System.Windows.Forms.Button btnLuu;
@@ -280,5 +280,9 @@
         private System.Windows.Forms.Button buttonPhanCong;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.ComboBox cboChonChucVu;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxCa;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblThoiGianCa;
     }
 }

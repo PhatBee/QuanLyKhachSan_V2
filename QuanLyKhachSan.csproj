@@ -493,6 +493,10 @@
     <Content Include="Haarcascade\haarcascade_frontalface_alt.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\tải xuống.png" />
+    <None Include="Resources\pngtree-customer-service-icon-png-image_1992574.jpg" />
+    <None Include="Resources\report_1321938.png" />
+    <None Include="Resources\support_1067566.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
