@@ -65,6 +65,7 @@
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.btnInDanhSach = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -428,7 +429,7 @@
             // 
             this.btnChinhSua.AutoSize = true;
             this.btnChinhSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChinhSua.Location = new System.Drawing.Point(466, 626);
+            this.btnChinhSua.Location = new System.Drawing.Point(468, 652);
             this.btnChinhSua.Name = "btnChinhSua";
             this.btnChinhSua.Size = new System.Drawing.Size(99, 30);
             this.btnChinhSua.TabIndex = 5;
@@ -440,7 +441,7 @@
             // 
             this.btnThem.AutoSize = true;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(466, 675);
+            this.btnThem.Location = new System.Drawing.Point(468, 701);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 30);
             this.btnThem.TabIndex = 6;
@@ -452,7 +453,7 @@
             // 
             this.btnXacNhan.AutoSize = true;
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Location = new System.Drawing.Point(628, 675);
+            this.btnXacNhan.Location = new System.Drawing.Point(630, 701);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(95, 30);
             this.btnXacNhan.TabIndex = 7;
@@ -465,7 +466,7 @@
             // 
             this.btnHuy.AutoSize = true;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(547, 675);
+            this.btnHuy.Location = new System.Drawing.Point(549, 701);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 30);
             this.btnHuy.TabIndex = 8;
@@ -490,7 +491,7 @@
             // 
             this.btnXoa.AutoSize = true;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(466, 711);
+            this.btnXoa.Location = new System.Drawing.Point(468, 737);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 30);
             this.btnXoa.TabIndex = 10;
@@ -498,11 +499,24 @@
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // btnInDanhSach
+            // 
+            this.btnInDanhSach.AutoSize = true;
+            this.btnInDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInDanhSach.Location = new System.Drawing.Point(452, 596);
+            this.btnInDanhSach.Name = "btnInDanhSach";
+            this.btnInDanhSach.Size = new System.Drawing.Size(129, 30);
+            this.btnInDanhSach.TabIndex = 11;
+            this.btnInDanhSach.Text = "In Danh Sách";
+            this.btnInDanhSach.UseVisualStyleBackColor = true;
+            this.btnInDanhSach.Click += new System.EventHandler(this.btnInDanhSach_Click);
+            // 
             // QuanLyNhanVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1408, 815);
+            this.Controls.Add(this.btnInDanhSach);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnHuy);
@@ -568,5 +582,6 @@
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnInDanhSach;
     }
 }

@@ -70,7 +70,6 @@ namespace QuanLyKhachSan
                 pnPhanCong.Visible = false;
                 pnThongKe.Visible = false;
                 pnBaoCao.Visible = false;
-                pnQLNV.Visible = false;
             }    
             else if (text == "Lao Công")
             {
