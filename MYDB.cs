@@ -11,7 +11,7 @@ namespace QuanLyKhachSan
     internal class MYDB
     {
         // Tân
-        // private static string connectionSTR = "Data Source=.;Initial Catalog=QuanLyKhachSan;Persist Security Info=True;User ID=sa;Password=1234;Encrypt=True;TrustServerCertificate=True";
+        //private static string connectionSTR = "Data Source=.;Initial Catalog=QuanLyKhachSan;Persist Security Info=True;User ID=sa;Password=1234;Encrypt=True;TrustServerCertificate=True";
         
         // Bee
         private static string connectionSTR = "Data Source=LAPTOP-1BLCIFVL\\PHATBEE;Initial Catalog=QuanLyKhachSan;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";

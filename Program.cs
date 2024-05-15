@@ -17,7 +17,7 @@ namespace QuanLyKhachSan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-            //Application.Run(new FaceID("QL001"));
+            //Application.Run(new QuanLyDichVu());
         }
     }
 }
