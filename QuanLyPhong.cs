@@ -71,29 +71,50 @@ namespace QuanLyKhachSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            MYDB mydb = new MYDB();
             Phong phong = new Phong();
             string maphong = tbxMaPhong.Text;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Phong WHERE TinhTrang = 1 AND MaPhong = @mp", mydb.getConnection);
+            cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
 
-            if (verif())
+            if (dt.Rows.Count > 0)
+            {
+
+                MessageBox.Show("Phòng đang được sử dụng, không thể xoá", "Xoá phòng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
                 if (phong.XoaPhong(maphong))
                 {
                     MessageBox.Show("Xoá phòng thành công", "Quản lý phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-
-                }
+               
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            MYDB mydb = new MYDB();
             Phong phong = new Phong();
             string maphong = tbxMaPhong.Text;
             string maloaiphong = cbxLoaiPhong.SelectedValue.ToString();
 
-            if (verif())
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Phong WHERE TinhTrang = 1 AND MaPhong = @mp", mydb.getConnection);
+            cmd.Parameters.Add("@mp", SqlDbType.VarChar).Value = maphong;
+
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("Phòng đang được sử dụng, không thể chỉnh sửa", "Chỉnh sửa phòng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
             {
                 if (phong.SuaPhong(maphong, maloaiphong))
                 {
@@ -103,7 +124,8 @@ namespace QuanLyKhachSan
                 {
 
                 }
-            }
+            } 
+                
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)

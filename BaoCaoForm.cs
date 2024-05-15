@@ -27,50 +27,60 @@ namespace QuanLyKhachSan
 
         private void btnTaoBaoCao_Click(object sender, EventArgs e)
         {
-            DateTime ngay = dateTimePicker1.Value.Date;
-
-            tinhToanLamViec();
-
-            SqlCommand cmd = new SqlCommand("SELECT PhanCong.MaNV, MaCV, Ngay, Sum(TongSoGioLam) as 'TongGioLam', Sum(Tre) as 'Tre' " +
-                "FROM PhanCong " +
-                "INNER JOIN NhanVien ON PhanCong.MaNV = NhanVien.MaNV " +
-                "WHERE Ngay = @ngay " +
-                "GROUP BY PhanCong.MaNV, MaCV, Ngay", mydb.getConnection);
-            cmd.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
-            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-
-            if (dt.Rows.Count > 0)
+            try
             {
-                foreach(DataRow row in dt.Rows)
+                DateTime ngay = dateTimePicker1.Value.Date;
+
+                tinhToanLamViec();
+
+                SqlCommand cmd = new SqlCommand("SELECT PhanCong.MaNV as 'Mã Nhân Viên', MaCV as 'Mã chức vụ', Ngay 'Ngày', Sum(TongSoGioLam) as 'Tổng giờ làm', Sum(Tre) as 'Tổng giờ trễ' " +
+                    "FROM PhanCong " +
+                    "INNER JOIN NhanVien ON PhanCong.MaNV = NhanVien.MaNV " +
+                    "WHERE Ngay = @ngay " +
+                    "GROUP BY PhanCong.MaNV, MaCV, Ngay", mydb.getConnection);
+                cmd.Parameters.Add("@ngay", SqlDbType.DateTime).Value = ngay;
+                SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+
+                if (dt.Rows.Count > 0)
                 {
-                    string manv = row[0].ToString();
-                    int tonggiolam = Convert.ToInt32(row[3].ToString());
-                    int tonggiotre = Convert.ToInt32(row[4].ToString());
-                    string chucvu = row[1].ToString();
-                    int luong;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string manv = row[0].ToString();
+                        int tonggiolam = Convert.ToInt32(row[3].ToString());
+                        int tonggiotre = Convert.ToInt32(row[4].ToString());
+                        string chucvu = row[1].ToString();
+                        int luong;
 
-                    if (chucvu == "CV002")
-                    {
-                        luong = tonggiolam * 60000 - tonggiotre * 120000;
-                    }    
-                    else if (chucvu == "CV003")
-                    {
-                        luong = tonggiolam * 40000 - tonggiotre * 80000;
+                        if (chucvu == "CV002")
+                        {
+                            luong = tonggiolam * 60000 - tonggiotre * 120000;
+                        }
+                        else if (chucvu == "CV003")
+                        {
+                            luong = tonggiolam * 40000 - tonggiotre * 80000;
+                        }
+                        else
+                        {
+                            luong = 0;
+                        }
+
+                        if (bc.themBaoCao(manv, ngay, tonggiolam, tonggiotre, luong, 0))
+                        {
+
+                        }
+
                     }
-                    else
-                    {
-                        luong = 0;
-                    }
 
-                    if (bc.themBaoCao(manv, ngay, tonggiolam, tonggiotre, luong, 0))
-                    {
-
-                    }
-
+                    MessageBox.Show("Tạo báo cáo thành công", "Báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dateTimePicker1_ValueChanged(sender, e);
                 }
-            } 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Phát hiện lỗi hoặc báo cáo đã được tạo, vui lòng kiểm tra lại", "Báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
                 
         }
 

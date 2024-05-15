@@ -30,8 +30,8 @@ namespace QuanLyKhachSan
 
             foreach (DataRow row in dt.Rows)
             {
-                row["NgayDat"] = ((DateTime)row["NgayDat"]).ToString("dd/MM/yyyy");
-                row["NgayTra"] = ((DateTime)row["NgayTra"]).ToString("dd/MM/yyyy");
+                row["Ngày Đặt"] = ((DateTime)row["Ngày Đặt"]).ToString("dd/MM/yyyy");
+                row["Ngày Trả"] = ((DateTime)row["Ngày Trả"]).ToString("dd/MM/yyyy");
             }
 
             dataGridView1.DataSource = dt;

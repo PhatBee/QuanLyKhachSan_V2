@@ -444,8 +444,8 @@ namespace QuanLyKhachSan
             }
             if (flag)
             {
-                dataGridView2.DataSource = phancong;
-                dataGridView2.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+                //dataGridView2.DataSource = phancong;
+                //dataGridView2.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
                 foreach (DataRow phc in phancong.Rows)
                 {
 
